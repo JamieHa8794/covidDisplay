@@ -1,11 +1,24 @@
 const express = require('express');
-const { syncAndSeed } = require('./db');
+const app = express();
 
+const { syncAndSeed, models: {byCountry, byState} } = require('./db');
 
-
-const init = () =>{
+app.get('/', async (req, res, next)=>{
     try{
-        syncAndSeed();
+        const countryData = await byCountry.findAll()
+        res.send(countryData)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
+
+const init = async () =>{
+    try{
+        await syncAndSeed();
+        const port = process.env.PORT || 3000;
+        app.listen(port, ()=> console.log(`listening on port ${port}`))
     }
     catch(err){
         console.log(err)
