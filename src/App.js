@@ -17,8 +17,6 @@ class _App extends Component{
     render(){
         const {statesInfo} = this.props.state
 
-        console.log(this.props.state)
-        console.log(statesInfo)
         return(
             <div className='main-box'>
                 <h1>

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {connect} from 'react-redux'
 import { Bar } from "react-chartjs-2";
 import {Chart as ChartJS} from 'chart.js/auto'
 
@@ -48,6 +49,15 @@ class BarChart extends Component{
     render(){
         const {labels, datasets, year2019, year2020, year2021, year2022} = this.state
         const {handleYearChange} = this
+        const {statesInfo} = this.props;
+
+        console.log(this.props)
+        console.log(statesInfo)
+
+        if(statesInfo){
+            const washington = statesInfo.filter(info => info.state === 'Washington')
+            console.log(washington)
+        }
 
         return(
             <div className='main-box'>
@@ -91,4 +101,11 @@ class BarChart extends Component{
     }
 }
 
-export default BarChart;
+
+const mapStateToProps = (state) =>{
+    return state;
+}
+
+
+export default connect(mapStateToProps)(BarChart)
+
