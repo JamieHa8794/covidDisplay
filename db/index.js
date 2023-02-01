@@ -37,6 +37,12 @@ const byCountry = db.define('byCountry', {
     date: {
         type: STRING
     },
+    day:{
+        type: STRING
+    },
+    year:{
+        type: STRING
+    },
     cases:{
         type: STRING
     },
@@ -69,6 +75,9 @@ const syncAndSeed = async () =>{
         await Promise.all(countryData.map(countryEntry =>{
             byCountry.create({
                 date: countryEntry.date,
+                month: countryEntry.month,
+                day: countryEntry.day,
+                year: countryEntry.year,
                 cases: countryEntry.cases,
                 deaths: countryEntry.deaths
             })
