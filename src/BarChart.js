@@ -19,14 +19,13 @@ class BarChart extends Component{
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
             datasets: [{
                 label: "Users Gained", 
-                data: [100, 150, 200, 250]
+                data: [150, 200, 250]
             }, 
             {
                 label: "Users Gained", 
-                data: [100, 150, 200, 250]
+                data: [150, 200, 250]
             }],
 
-            year2019: true,
             year2020: true,
             year2021: true,
             year2022: true,
@@ -47,7 +46,7 @@ class BarChart extends Component{
         }
     }
     render(){
-        const {labels, datasets, year2019, year2020, year2021, year2022} = this.state
+        const {labels, datasets, year2020, year2021, year2022} = this.state
         const {handleYearChange} = this
         const {statesInfo} = this.props;
 
@@ -57,6 +56,8 @@ class BarChart extends Component{
         if(statesInfo){
             const washington = statesInfo.filter(info => info.state === 'Washington')
             console.log(washington)
+            const year2020Washington = washington.filter(info => info.year === '2020')
+            console.log('2020washington',year2020Washington)
         }
 
         return(
@@ -68,12 +69,6 @@ class BarChart extends Component{
                 <FormLabel component="legend">Years:</FormLabel>
 
                     <FormGroup>
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2019} onChange={()=>handleYearChange('year2019')} name="year2019" />
-                        }
-                        label="2019"
-                    />
                     <FormControlLabel
                         control={
                         <Checkbox checked={year2020} onChange={()=>handleYearChange('year2020')} name="year2020" />

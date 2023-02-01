@@ -10,6 +10,15 @@ const byState = db.define('byState', {
     date: {
         type: STRING
     },
+    month:{
+        type: STRING
+    },
+    day:{
+        type: STRING
+    },
+    year:{
+        type: STRING
+    },
     state:{
         type: STRING
     },
@@ -47,6 +56,9 @@ const syncAndSeed = async () =>{
         await Promise.all(stateData.map(stateEntry =>{
             byState.create({
                 date: stateEntry.date,
+                month: stateEntry.month,
+                day: stateEntry.day,
+                year: stateEntry.year,
                 state: stateEntry.state,
                 fips: stateEntry.fips,
                 cases: stateEntry.cases,
