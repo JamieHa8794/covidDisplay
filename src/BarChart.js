@@ -43,8 +43,7 @@ class BarChart extends Component{
         }
 
         this.handleYearChange = this.handleYearChange.bind(this)
-        this.handleListItemClick = this.handleListItemClick.bind(this)
-        this.setSelectedIndex = this.setSelectedIndex.bind(this)
+        this.changeDataState = this.changeDataState.bind(this)
     }
     handleYearChange(year){
         if(this.state[year]){
@@ -58,27 +57,23 @@ class BarChart extends Component{
             })
         }
     }
-    changeDataState(){
-        
-    }
-    setSelectedIndex(index){
-        this.setState({
-            selectedIndex: index
-        })
-    }
-    handleListItemClick(event, index){
-        const {setSelectedIndex} = this
-        setSelectedIndex(index)
+    changeDataState(event){
+        const change = {}
+        change[event.target.name] = event.target.value;
+        this.setState(change)
     }
     render(){
         const {labels, datasets, year2020, year2021, year2022, USAState, selectedIndex} = this.state
-        const {handleYearChange, handleListItemClick} = this
+        const {handleYearChange, changeDataState} = this
         const {statesInfo} = this.props;
 
 
-        console.log(this.props)
-        console.log(this.state)
+        // console.log(this.props)
+        // console.log(this.state)
         // console.log(statesInfo)
+
+
+        console.log('USAState', USAState)
 
         if(statesInfo){
             if(USAState === ''){
@@ -86,10 +81,10 @@ class BarChart extends Component{
             }
             else{
                 const currentStateInfo = statesInfo.filter(info => info.state === USAState)
-                console.log(currentStateInfo)
+                // console.log(currentStateInfo)
             }
         }
-        console.log(USAStateList)
+        // console.log(USAStateList)
 
         return(
             <div className='main-box'>
@@ -121,7 +116,7 @@ class BarChart extends Component{
                     </FormGroup>
                 </FormControl>
 
-                <select>
+                <select value={USAState} name='USAState' onChange={changeDataState}>
                     {USAStateList.map(stateName =>{
                         return(
                             <option value={stateName}>{stateName}</option>
@@ -131,26 +126,7 @@ class BarChart extends Component{
                 </select>
 
 
-                <List component="nav" aria-label="main mailbox folders">
-                    <ListItemButton
-                    selected={selectedIndex === 0}
-                    onClick={(event) => handleListItemClick(event, 0)}
-                    >
-                        <ListItemIcon>
-                        <Avatar>H</Avatar>
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                    </ListItemButton>
-                    <ListItemButton
-                    selected={selectedIndex === 1}
-                    onClick={(event) => handleListItemClick(event, 1)}
-                    >
-                        <ListItemIcon>
-                        <Avatar>H</Avatar>
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                    </ListItemButton>
-                </List>
+        
 
 
 
