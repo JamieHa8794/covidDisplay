@@ -38,13 +38,23 @@ class BarChart extends Component{
             year2020: true,
             year2021: true,
             year2022: true,
-            USAState: 'New York',
-            selectedIndex: 0
+            USAState: 'USA',
+            selectedIndex: 0,
+
+            covidArr : [],
+
+
         }
 
         this.handleYearChange = this.handleYearChange.bind(this)
         this.changeDataState = this.changeDataState.bind(this)
     }
+    componentDidUpdate(prevProps){
+        if(prevProps.statesInfo.length == 0 && this.props.statesInfo.length > 0){
+            this.setState({covidArr: this.props.statesInfo})
+        }
+    }
+
     handleYearChange(year){
         if(this.state[year]){
             this.setState({
@@ -61,30 +71,45 @@ class BarChart extends Component{
         const change = {}
         change[event.target.name] = event.target.value;
         this.setState(change)
+
+
+        const {statesInfo} = this.props
+
+
+        if(statesInfo.length > 0){
+            if(event.target.value === ''){
+
+            }
+            else if(event.target.value === 'USA') {
+                this.setState({covidArr: statesInfo})
+            }
+            else{
+                const currentStateInfo = statesInfo.filter(info => info.state === event.target.value)
+                this.setState({covidArr : currentStateInfo})
+                console.log(this.state)
+            }
+        }
+
+
+
     }
     render(){
-        const {labels, datasets, year2020, year2021, year2022, USAState, selectedIndex} = this.state
+        const {labels, datasets, year2020, year2021, year2022, USAState, covidArr} = this.state
         const {handleYearChange, changeDataState} = this
         const {statesInfo} = this.props;
 
+        let currentStateInfo = []
 
-        // console.log(this.props)
-        // console.log(this.state)
-        // console.log(statesInfo)
+        // if(statesInfo){
+        //     if(USAState === ''){
 
+        //     }
+        //     else{
+        //         currentStateInfo = statesInfo.filter(info => info.state === USAState)
+        //     }
+        // }
 
-        console.log('USAState', USAState)
-
-        if(statesInfo){
-            if(USAState === ''){
-
-            }
-            else{
-                const currentStateInfo = statesInfo.filter(info => info.state === USAState)
-                // console.log(currentStateInfo)
-            }
-        }
-        // console.log(USAStateList)
+        console.log('hererereer',covidArr)
 
         return(
             <div className='main-box'>
@@ -117,6 +142,8 @@ class BarChart extends Component{
                 </FormControl>
 
                 <select value={USAState} name='USAState' onChange={changeDataState}>
+                    <option value='USA'>USA</option>
+
                     {USAStateList.map(stateName =>{
                         return(
                             <option value={stateName}>{stateName}</option>
@@ -124,12 +151,6 @@ class BarChart extends Component{
                     })
                     }
                 </select>
-
-
-        
-
-
-
             </div>
         )
     }
