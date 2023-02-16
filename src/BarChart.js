@@ -38,6 +38,7 @@ class BarChart extends Component{
 
         this.handleYearChange = this.handleYearChange.bind(this)
         this.changeDataState = this.changeDataState.bind(this)
+        this.resetCovidData = this.resetCovidData.bind(this)
     }
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
@@ -56,18 +57,46 @@ class BarChart extends Component{
         
     }
     handleYearChange(year){
+
+        const changeYear = year.slice(4);
+        const stringCovidYear = 'covidData' + changeYear
+
+        console.log(stringCovidYear)
+
         if(this.state[year]){
+
             this.setState({
-                [year]: false
+                [year]: false,
+                [stringCovidYear]: []
             })
+
         }
         else{
-            this.setState({
-                [year]: true
-            })
+            const {USAState} = this.state;
+            const {statesInfo} = this.props;
+
+            const temp = statesInfo.filter(entry => entry.year === changeYear);
+            if(USAState === 'USA'){
+                this.setState({
+                    [year]: true,
+                    [stringCovidYear]: temp
+                })
+            }
+            else{
+                const tempState = temp.filter(entry=> entry.state === USAState);
+    
+                this.setState({
+                    [year]: true,
+                    [stringCovidYear]: tempState
+                })
+            }
         }
     }
+    resetCovidData(resetYear){
 
+        return this.props.statesInfo.filter(entry => entry.year === resetYear)
+
+    }
     changeDataState(event){
         const change = {}
         change[event.target.name] = event.target.value;
@@ -78,13 +107,10 @@ class BarChart extends Component{
         let {covidData2020, covidData2021, covidData2022} = this.state;
 
 
-        const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
-        const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
-        const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
+        covidData2020 = this.resetCovidData('2020')
+        covidData2021 = this.resetCovidData('2021')
+        covidData2022 = this.resetCovidData('2022')
 
-        covidData2020 =  data2020
-        covidData2021 =  data2021
-        covidData2022 =  data2022
 
 
 
@@ -133,38 +159,46 @@ class BarChart extends Component{
         console.log(this.state)
 
         let bar2020 = []
-        covidData2020.map(entry =>{
+        if(covidData2020){
+            covidData2020.map(entry =>{
+    
+                if(bar2020[entry.month]){
+                    bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
+                }
+                else{
+                    bar2020[entry.month] = entry.cases * 1
+                }
+    
+            })
+        }
 
-            if(bar2020[entry.month]){
-                bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
-            }
-            else{
-                bar2020[entry.month] = entry.cases * 1
-            }
-
-        })
         let bar2021 = []
-        covidData2020.map(entry =>{
+        if(covidData2021){
+            covidData2021.map(entry =>{
+    
+                if(bar2021[entry.month]){
+                    bar2021[entry.month] = bar2021[entry.month] + entry.cases * 1
+                }
+                else{
+                    bar2021[entry.month] = entry.cases * 1
+                }
+    
+            })
+        }
 
-            if(bar2021[entry.month]){
-                bar2021[entry.month] = bar2021[entry.month] + entry.cases * 1
-            }
-            else{
-                bar2021[entry.month] = entry.cases * 1
-            }
-
-        })
         let bar2022 = []
-        covidData2022.map(entry =>{
-
-            if(bar2022[entry.month]){
-                bar2022[entry.month] = bar2022[entry.month] + entry.cases * 1
-            }
-            else{
-                bar2022[entry.month] = entry.cases * 1
-            }
-
-        })
+        if(covidData2022){
+            covidData2022.map(entry =>{
+    
+                if(bar2022[entry.month]){
+                    bar2022[entry.month] = bar2022[entry.month] + entry.cases * 1
+                }
+                else{
+                    bar2022[entry.month] = entry.cases * 1
+                }
+    
+            })
+        }
 
 
         console.log(bar2020)
