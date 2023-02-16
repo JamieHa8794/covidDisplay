@@ -61,7 +61,6 @@ class BarChart extends Component{
         const changeYear = year.slice(4);
         const stringCovidYear = 'covidData' + changeYear
 
-        console.log(stringCovidYear)
 
         if(this.state[year]){
 
@@ -156,7 +155,6 @@ class BarChart extends Component{
         const {statesInfo} = this.props;
 
 
-        console.log(this.state)
 
         let bar2020 = []
         if(covidData2020){
@@ -200,9 +198,6 @@ class BarChart extends Component{
             })
         }
 
-
-        console.log(bar2020)
-
         const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
         const datasets = [{
             label: "2020", 
@@ -218,11 +213,10 @@ class BarChart extends Component{
         }, 
         ]
 
-
         return(
             <div className='main-box'>
-                
-                <Bar data={{labels, datasets}}/>
+                <h1>Bar Chart</h1>
+                <Bar data={{labels, datasets}} />
                 
                 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
                 <FormLabel component="legend">Years:</FormLabel>

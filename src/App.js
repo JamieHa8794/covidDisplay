@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import BarChart from './BarChart';
+import PieChartByState from './PieChartByState';
 import { loading, loadCountries, loadStates } from './store';
 
 
@@ -20,8 +21,9 @@ class _App extends Component{
         return(
             <div className='main-box'>
                 <h1>
-                    Hello World
+                    Covid Data
                 </h1>
+                <PieChartByState/>
                 <BarChart/>
             </div>
         )

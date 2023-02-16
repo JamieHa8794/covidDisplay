@@ -1,0 +1,42 @@
+import React, {Component} from 'react'
+import { Pie } from 'react-chartjs-2';
+import {connect} from 'react-redux'
+
+
+
+class PieChartByState extends Component{
+    constructor(){
+        super();
+        this.state = {
+
+        }
+    }
+    render(){
+        const {statesInfo} = this.props
+
+        console.log(statesInfo)
+
+
+        const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+        const datasets = [{
+            labels: ['blue', 'red', 'green', 'purple', 'orange'],
+            data: [10, 2, 1, 6, 20]
+        }]
+
+
+
+        return(
+            <div className='main-box'>
+                <h1>Pie Chart</h1>
+                <Pie data={{labels, datasets}}/>
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = (state) =>{
+    return state;
+}
+
+
+export default connect(mapStateToProps)(PieChartByState)
