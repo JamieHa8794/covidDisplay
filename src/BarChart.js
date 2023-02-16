@@ -10,11 +10,6 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
 
 
 const USAStateList = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
@@ -45,9 +40,20 @@ class BarChart extends Component{
         this.changeDataState = this.changeDataState.bind(this)
     }
     componentDidUpdate(prevProps){
+        const {statesInfo} = this.props
         if(prevProps.statesInfo.length == 0 && this.props.statesInfo.length > 0){
             this.setState({covidDataArr: this.props.statesInfo})
+
+            const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
+            const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
+            const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
+            this.setState({
+                covidData2020: data2020,
+                covidData2021: data2021,
+                covidData2022: data2022,
+            })
         }
+        
     }
     handleYearChange(year){
         if(this.state[year]){
@@ -60,81 +66,59 @@ class BarChart extends Component{
                 [year]: true
             })
         }
-        this.changeCovidData();
     }
+
     changeDataState(event){
         const change = {}
         change[event.target.name] = event.target.value;
         this.setState(change)
 
+        
+        const {year2020, year2021, year2022} = this.state;
+        let {covidData2020, covidData2021, covidData2022} = this.state;
 
-        const {statesInfo} = this.props
+
+        const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
+        const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
+        const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
+
+        covidData2020 =  data2020
+        covidData2021 =  data2021
+        covidData2022 =  data2022
 
 
-        if(statesInfo.length > 0){
-            if(event.target.value === ''){
 
-            }
-            else if(event.target.value === 'USA') {
-                this.setState({covidDataArr: statesInfo})
+        if(year2020){
+            if(event.target.value === 'USA'){
+                let temp = covidData2020
+                this.setState({covidData2020: temp})
             }
             else{
-                const currentStateInfo = statesInfo.filter(info => info.state === event.target.value)
-                this.setState({covidDataArr : currentStateInfo})
-                console.log(this.state)
+                let temp = covidData2020.filter(entry => entry.state === event.target.value)
+                this.setState({covidData2020: temp})
             }
         }
-        this.changeCovidData();
-    
+        if(year2021){
+            if(event.target.value === 'USA'){
+                let temp = covidData2021
+                this.setState({covidData2021: temp})
+            }
+            else{
+                let temp = covidData2021.filter(entry => entry.state === event.target.value)
+                this.setState({covidData2021: temp})
+            }
+        }
+        if(year2022){
+            if(event.target.value === 'USA'){
+                let temp = covidData2022
+                this.setState({covidData2022: temp})
+            }
+            else{
+                let temp = covidData2022.filter(entry => entry.state === event.target.value)
+                this.setState({covidData2022: temp})
+            }
+        }
 
-    }
-    changeCovidData(){
-        const {covidData2020, covidData2021, covidData2022} = this.state
-        const temp = {}
-        if(this.state.year2020 === true){
-            console.log(this.state.year2020)
-            this.state.covidDataArr.map(dataEntry =>{
-                if(dataEntry.year === '2020'){
-                    if(temp[dataEntry.month]){
-                        temp[dataEntry.month] = temp[dataEntry.month] + dataEntry.cases * 1
-                    }
-                    else{
-                        temp[dataEntry.month] = dataEntry.cases * 1 
-                    }
-                }
-                console.log(temp)
-            })
-            this.setState({covidData2020: Object.values(temp)})
-        }
-        if(this.state.year2021 === true){
-            this.state.covidDataArr.map(dataEntry =>{
-                if(dataEntry.year === '2021'){
-                    if(temp[dataEntry.month]){
-                        temp[dataEntry.month] = temp[dataEntry.month] + dataEntry.cases * 1
-                    }
-                    else{
-                        temp[dataEntry.month] = dataEntry.cases * 1 
-                    }
-                }
-                console.log(temp)
-            })
-            this.setState({covidData2021: Object.values(temp)})
-        }
-        if(this.state.year2022 === true){
-            this.state.covidDataArr.map(dataEntry =>{
-                if(dataEntry.year === '2022'){
-                    if(temp[dataEntry.month]){
-                        temp[dataEntry.month] = temp[dataEntry.month] + dataEntry.cases * 1
-                    }
-                    else{
-                        temp[dataEntry.month] = dataEntry.cases * 1 
-                    }
-                }
-                console.log(temp)
-            })
-            this.setState({covidData2022: Object.values(temp)})
-        }
-        console.log(this.state)
     }
 
 
@@ -146,19 +130,57 @@ class BarChart extends Component{
         const {statesInfo} = this.props;
 
 
+        console.log(this.state)
+
+        let bar2020 = []
+        covidData2020.map(entry =>{
+
+            if(bar2020[entry.month]){
+                bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
+            }
+            else{
+                bar2020[entry.month] = entry.cases * 1
+            }
+
+        })
+        let bar2021 = []
+        covidData2020.map(entry =>{
+
+            if(bar2021[entry.month]){
+                bar2021[entry.month] = bar2021[entry.month] + entry.cases * 1
+            }
+            else{
+                bar2021[entry.month] = entry.cases * 1
+            }
+
+        })
+        let bar2022 = []
+        covidData2022.map(entry =>{
+
+            if(bar2022[entry.month]){
+                bar2022[entry.month] = bar2022[entry.month] + entry.cases * 1
+            }
+            else{
+                bar2022[entry.month] = entry.cases * 1
+            }
+
+        })
+
+
+        console.log(bar2020)
 
         const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
         const datasets = [{
             label: "2020", 
-            data: covidData2020
+            data: bar2020
         }, 
         {
             label: "2021", 
-            data: covidData2021
+            data: bar2021
         }, 
         {
             label: "2022", 
-            data: covidData2022
+            data: bar2022
         }, 
         ]
 
