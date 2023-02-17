@@ -16,7 +16,7 @@ const USAStateList = ['Alabama','Alaska','Arizona','Arkansas','California','Colo
 const USAStateAbrv = [{"name":"Alabama","abbreviation":"AL"},{"name":"Alaska","abbreviation":"AK"},{"name":"Arizona","abbreviation":"AZ"},{"name":"Arkansas","abbreviation":"AR"},{"name":"California","abbreviation":"CA"},{"name":"Colorado","abbreviation":"CO"},{"name":"Connecticut","abbreviation":"CT"},{"name":"Delaware","abbreviation":"DE"},{"name":"Florida","abbreviation":"FL"},{"name":"Georgia","abbreviation":"GA"},{"name":"Hawaii","abbreviation":"HI"},{"name":"Idaho","abbreviation":"ID"},{"name":"Illinois","abbreviation":"IL"},{"name":"Indiana","abbreviation":"IN"},{"name":"Iowa","abbreviation":"IA"},{"name":"Kansas","abbreviation":"KS"},{"name":"Kentucky","abbreviation":"KY"},{"name":"Louisiana","abbreviation":"LA"},{"name":"Maine","abbreviation":"ME"},{"name":"Maryland","abbreviation":"MD"},{"name":"Massachusetts","abbreviation":"MA"},{"name":"Michigan","abbreviation":"MI"},{"name":"Minnesota","abbreviation":"MN"},{"name":"Mississippi","abbreviation":"MS"},{"name":"Missouri","abbreviation":"MO"},{"name":"Montana","abbreviation":"MT"},{"name":"Nebraska","abbreviation":"NE"},{"name":"Nevada","abbreviation":"NV"},{"name":"New Hampshire","abbreviation":"NH"},{"name":"New Jersey","abbreviation":"NJ"},{"name":"New Mexico","abbreviation":"NM"},{"name":"New York","abbreviation":"NY"},{"name":"North Carolina","abbreviation":"NC"},{"name":"North Dakota","abbreviation":"ND"},{"name":"Ohio","abbreviation":"OH"},{"name":"Oklahoma","abbreviation":"OK"},{"name":"Oregon","abbreviation":"OR"},{"name":"Pennsylvania","abbreviation":"PA"},{"name":"Rhode Island","abbreviation":"RI"},{"name":"South Carolina","abbreviation":"SC"},{"name":"South Dakota","abbreviation":"SD"},{"name":"Tennessee","abbreviation":"TN"},{"name":"Texas","abbreviation":"TX"},{"name":"Utah","abbreviation":"UT"},{"name":"Vermont","abbreviation":"VT"},{"name":"Virginia","abbreviation":"VA"},{"name":"Washington","abbreviation":"WA"},{"name":"West Virginia","abbreviation":"WV"},{"name":"Wisconsin","abbreviation":"WI"},{"name":"Wyoming","abbreviation":"WY"}]
 
 
-class BarChartCases extends Component{
+class BarChartCasesMonthly extends Component{
     constructor(){
         super();
         this.state = {
@@ -156,23 +156,20 @@ class BarChartCases extends Component{
 
 
 
-        let bar2020 = {}
-        let bar2020Labels = []
+        let bar2020 = []
         if(covidData2020){
             covidData2020.map(entry =>{
-
+    
                 if(bar2020[entry.month]){
                     bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
                 }
                 else{
                     bar2020[entry.month] = entry.cases * 1
                 }
-
-
+    
             })
         }
-        console.log(bar2020)
-        console.log(bar2020Labels)
+
         let bar2021 = []
         if(covidData2021){
             covidData2021.map(entry =>{
@@ -201,28 +198,37 @@ class BarChartCases extends Component{
             })
         }
 
-        // const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-        const labels =  bar2020Labels
-
+        const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
         const datasets = [{
             label: "2020", 
             data: bar2020,
-            backgroundColor: 'rgba(0, 0, 0)',
         }, 
-        // {
-        //     label: "2021", 
-        //     data: bar2021
-        // }, 
-        // {
-        //     label: "2022", 
-        //     data: bar2022
-        // }, 
+        {
+            label: "2021", 
+            data: bar2021
+        }, 
+        {
+            label: "2022", 
+            data: bar2022
+        }, 
+
         ]
 
+        const options = {
+            layout:{
+                padding: 20
+            },
+            scales:{
+                x:{
+                    categoryPercentage: 1.0,
+                    barPercentage: 1.0
+                }
+            }
+    }
         return(
             <div className='main-box'>
-                <h1>Bar Chart - Cases</h1>
-                <Bar data={{labels, datasets}} />
+                <h1>Bar Chart - Cases - Monthly</h1>
+                <Bar data={{labels, datasets}} options={options}/>
                 
                 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
                 <FormLabel component="legend">Years:</FormLabel>
@@ -271,5 +277,5 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps)(BarChartCases)
+export default connect(mapStateToProps)(BarChartCasesMonthly)
 

@@ -23,7 +23,7 @@ const USAStateAbrv = [{"name":"Alabama","abbreviation":"AL"},{"name":"Alaska","a
 
 
 
-class BarChartCases extends Component{
+class BarChartCasesDailyTotal extends Component{
     constructor(){
         super();
         this.state = {
@@ -165,13 +165,12 @@ class BarChartCases extends Component{
 
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
-        const temp = new Array(365).fill(' ')
+        const temp = new Array(365*3).fill(' ')
         const daysOfYear = []
-        let date = new Date('January 1');
+        let date = new Date('January 1, 2020');
 
         function addDays(date, days) {
             date.setDate(date.getDate() + days);
-            // console.log(date)
             return date;
         }
 
@@ -185,13 +184,12 @@ class BarChartCases extends Component{
             const newDate = addDays(date, 1);
             daysOfYear.push(months[newDate.getMonth()]+ '. ' + newDate.getDate())
 
-            const shortDate20 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'20'
-            const shortDate21 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'21'
-            const shortDate22 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'22'
+            const shortDate = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+ (newDate.getYear().toString().slice(-2))
 
-            bar2020[shortDate20] = 0;
-            bar2021[shortDate21] = 0;
-            bar2022[shortDate22] = 0;
+            bar2020[shortDate] = 0
+            bar2021[shortDate] = 0
+            bar2022[shortDate] = 0
+
 
         })
 
@@ -209,17 +207,14 @@ class BarChartCases extends Component{
             })
         }
 
-        console.log(bar2020)
         if(covidData2021){
             covidData2021.map(entry =>{
     
-
-
-                if(bar2021[entry.month]){
-                    bar2021[entry.month] = bar2021[entry.month] + entry.cases * 1
+                if(bar2021[entry.date]){
+                    bar2021[entry.date] = bar2021[entry.date] + entry.cases * 1
                 }
                 else{
-                    bar2021[entry.month] = entry.cases * 1
+                    bar2021[entry.date] = entry.cases * 1
                 }
     
             })
@@ -227,12 +222,12 @@ class BarChartCases extends Component{
 
         if(covidData2022){
             covidData2022.map(entry =>{
-    
-                if(bar2022[entry.month]){
-                    bar2022[entry.month] = bar2022[entry.month] + entry.cases * 1
+
+                if(bar2022[entry.date]){
+                    bar2022[entry.date] = bar2022[entry.date] + entry.cases * 1
                 }
                 else{
-                    bar2022[entry.month] = entry.cases * 1
+                    bar2022[entry.date] = entry.cases * 1
                 }
     
             })
@@ -240,68 +235,67 @@ class BarChartCases extends Component{
 
         const labels =  daysOfYear
 
-        console.log(daysOfYear)
 
         const datasets = [{
             label: "2020", 
             data: Object.values(bar2020),
+            categoryPercentage: 1,
+            barPercentage: 1.0,
+            hoverBackgroundColor: 'grey',
+            hoverBorderRadius: 1
         }, 
-        // {
-        //     label: "2021", 
-        //     data: Object.values(bar2021)
-        // }, 
-        // {
-        //     label: "2022", 
-        //     data: Object.values(bar2022)
-        // }, 
+        {
+            label: "2021", 
+            data: Object.values(bar2021),
+            categoryPercentage: 1,
+            barPercentage: 1.0,
+            hoverBackgroundColor: 'grey'
+
+        }, 
+        {
+            label: "2022", 
+            data: Object.values(bar2022),
+            categoryPercentage: 1,
+            barPercentage: 1.0,
+            hoverBackgroundColor: 'grey'
+
+        }, 
         ]
+
+ 
         const options = {
             layout:{
-                padding: 0
+                padding: 20
             },
             scales:{
                 x:{
+                    barPercentage: 1,
                     ticks:{
                         callback: (value, index, values) =>{
                             if(labels[index].slice(-2) === '15'){
                                 return labels[index]
                             }
-                            console.log(labels[index])
                         }
                     }
+                },
+                y: {
+                    min: 0,
+                    max: 12000000
                 }
             }
         }
+
+        if(USAState === 'USA'){
+            options.scales.y = {
+                min: 0,
+                max: 120000000
+                }
+        }   
 
         return(
             <div className='main-box'>
                 <h1>Bar Chart - Cases</h1>
                 <Bar data={{labels, datasets}} options={options}/>
-                
-                <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-                <FormLabel component="legend">Years:</FormLabel>
-
-                    <FormGroup>
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2020} onChange={()=>handleYearChange('year2020')} name="year2020" />
-                        }
-                        label="2020"
-                    />
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2021} onChange={()=>handleYearChange('year2021')} name="year2021" />
-                        }
-                        label="2021"
-                    />
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2022} onChange={()=>handleYearChange('year2022')} name="year2022" />
-                        }
-                        label="2022"
-                    />
-                    </FormGroup>
-                </FormControl>
 
                 <select value={USAState} name='USAState' onChange={changeDataState}>
                     <option value='USA'>USA</option>
@@ -325,5 +319,5 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps)(BarChartCases)
+export default connect(mapStateToProps)(BarChartCasesDailyTotal)
 
