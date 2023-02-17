@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import BarChart from './BarChart';
-import PieChartByState from './PieChartByState';
+import BarChartCases from './BarChartCases';
+import BarChartDeaths from './BarChartDeaths';
+import LineChartByState from './LineChartByState';
+
 import { loading, loadCountries, loadStates } from './store';
 
 
@@ -23,8 +25,10 @@ class _App extends Component{
                 <h1>
                     Covid Data
                 </h1>
-                <PieChartByState/>
-                <BarChart/>
+                <LineChartByState/>
+                <BarChartCases/>
+                <BarChartDeaths/>
+
             </div>
         )
     }

@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import { Pie } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import {connect} from 'react-redux'
 
 
 
-class PieChartByState extends Component{
+class LineChartByState extends Component{
     constructor(){
         super();
         this.state = {
@@ -28,7 +28,7 @@ class PieChartByState extends Component{
         return(
             <div className='main-box'>
                 <h1>Pie Chart</h1>
-                <Pie data={{labels, datasets}}/>
+                <Line data={{labels, datasets}}/>
             </div>
         )
     }
@@ -39,4 +39,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps)(PieChartByState)
+export default connect(mapStateToProps)(LineChartByState)

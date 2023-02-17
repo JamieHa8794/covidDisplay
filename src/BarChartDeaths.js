@@ -16,7 +16,7 @@ const USAStateList = ['Alabama','Alaska','Arizona','Arkansas','California','Colo
 const USAStateAbrv = [{"name":"Alabama","abbreviation":"AL"},{"name":"Alaska","abbreviation":"AK"},{"name":"Arizona","abbreviation":"AZ"},{"name":"Arkansas","abbreviation":"AR"},{"name":"California","abbreviation":"CA"},{"name":"Colorado","abbreviation":"CO"},{"name":"Connecticut","abbreviation":"CT"},{"name":"Delaware","abbreviation":"DE"},{"name":"Florida","abbreviation":"FL"},{"name":"Georgia","abbreviation":"GA"},{"name":"Hawaii","abbreviation":"HI"},{"name":"Idaho","abbreviation":"ID"},{"name":"Illinois","abbreviation":"IL"},{"name":"Indiana","abbreviation":"IN"},{"name":"Iowa","abbreviation":"IA"},{"name":"Kansas","abbreviation":"KS"},{"name":"Kentucky","abbreviation":"KY"},{"name":"Louisiana","abbreviation":"LA"},{"name":"Maine","abbreviation":"ME"},{"name":"Maryland","abbreviation":"MD"},{"name":"Massachusetts","abbreviation":"MA"},{"name":"Michigan","abbreviation":"MI"},{"name":"Minnesota","abbreviation":"MN"},{"name":"Mississippi","abbreviation":"MS"},{"name":"Missouri","abbreviation":"MO"},{"name":"Montana","abbreviation":"MT"},{"name":"Nebraska","abbreviation":"NE"},{"name":"Nevada","abbreviation":"NV"},{"name":"New Hampshire","abbreviation":"NH"},{"name":"New Jersey","abbreviation":"NJ"},{"name":"New Mexico","abbreviation":"NM"},{"name":"New York","abbreviation":"NY"},{"name":"North Carolina","abbreviation":"NC"},{"name":"North Dakota","abbreviation":"ND"},{"name":"Ohio","abbreviation":"OH"},{"name":"Oklahoma","abbreviation":"OK"},{"name":"Oregon","abbreviation":"OR"},{"name":"Pennsylvania","abbreviation":"PA"},{"name":"Rhode Island","abbreviation":"RI"},{"name":"South Carolina","abbreviation":"SC"},{"name":"South Dakota","abbreviation":"SD"},{"name":"Tennessee","abbreviation":"TN"},{"name":"Texas","abbreviation":"TX"},{"name":"Utah","abbreviation":"UT"},{"name":"Vermont","abbreviation":"VT"},{"name":"Virginia","abbreviation":"VA"},{"name":"Washington","abbreviation":"WA"},{"name":"West Virginia","abbreviation":"WV"},{"name":"Wisconsin","abbreviation":"WI"},{"name":"Wyoming","abbreviation":"WY"}]
 
 
-class BarChart extends Component{
+class BarChartDeaths extends Component{
     constructor(){
         super();
         this.state = {
@@ -161,10 +161,10 @@ class BarChart extends Component{
             covidData2020.map(entry =>{
     
                 if(bar2020[entry.month]){
-                    bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
+                    bar2020[entry.month] = bar2020[entry.month] + entry.deaths * 1
                 }
                 else{
-                    bar2020[entry.month] = entry.cases * 1
+                    bar2020[entry.month] = entry.deaths * 1
                 }
     
             })
@@ -175,10 +175,10 @@ class BarChart extends Component{
             covidData2021.map(entry =>{
     
                 if(bar2021[entry.month]){
-                    bar2021[entry.month] = bar2021[entry.month] + entry.cases * 1
+                    bar2021[entry.month] = bar2021[entry.month] + entry.deaths * 1
                 }
                 else{
-                    bar2021[entry.month] = entry.cases * 1
+                    bar2021[entry.month] = entry.deaths * 1
                 }
     
             })
@@ -189,10 +189,10 @@ class BarChart extends Component{
             covidData2022.map(entry =>{
     
                 if(bar2022[entry.month]){
-                    bar2022[entry.month] = bar2022[entry.month] + entry.cases * 1
+                    bar2022[entry.month] = bar2022[entry.month] + entry.deaths * 1
                 }
                 else{
-                    bar2022[entry.month] = entry.cases * 1
+                    bar2022[entry.month] = entry.deaths * 1
                 }
     
             })
@@ -215,7 +215,7 @@ class BarChart extends Component{
 
         return(
             <div className='main-box'>
-                <h1>Bar Chart</h1>
+                <h1>Bar Chart - Deaths</h1>
                 <Bar data={{labels, datasets}} />
                 
                 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
@@ -265,5 +265,5 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps)(BarChart)
+export default connect(mapStateToProps)(BarChartDeaths)
 
