@@ -156,20 +156,29 @@ class BarChartCases extends Component{
 
 
 
-        let bar2020 = []
+        let bar2020 = {}
+        let bar2020Labels = []
         if(covidData2020){
             covidData2020.map(entry =>{
     
-                if(bar2020[entry.month]){
-                    bar2020[entry.month] = bar2020[entry.month] + entry.cases * 1
+                if(bar2020[entry.date]){
+                    bar2020[entry.date] = bar2020[entry.date] + entry.cases * 1
                 }
                 else{
-                    bar2020[entry.month] = entry.cases * 1
+                    bar2020[entry.date] = entry.cases * 1
                 }
-    
+                if(bar2020Labels.includes(entry.date)){
+
+                }
+                else{
+                    bar2020Labels.push(entry.date)
+                }
+
+
             })
         }
-
+        console.log(bar2020)
+        console.log(bar2020Labels)
         let bar2021 = []
         if(covidData2021){
             covidData2021.map(entry =>{
@@ -198,19 +207,22 @@ class BarChartCases extends Component{
             })
         }
 
-        const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+        // const labels =  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+        const labels =  bar2020Labels
+
         const datasets = [{
             label: "2020", 
-            data: bar2020
+            data: bar2020,
+            backgroundColor: 'rgba(0, 0, 0)',
         }, 
-        {
-            label: "2021", 
-            data: bar2021
-        }, 
-        {
-            label: "2022", 
-            data: bar2022
-        }, 
+        // {
+        //     label: "2021", 
+        //     data: bar2021
+        // }, 
+        // {
+        //     label: "2022", 
+        //     data: bar2022
+        // }, 
         ]
 
         return(

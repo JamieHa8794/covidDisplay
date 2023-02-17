@@ -27,7 +27,7 @@ class LineChartByState extends Component{
 
         return(
             <div className='main-box'>
-                <h1>Pie Chart</h1>
+                <h1>Line Chart</h1>
                 <Line data={{labels, datasets}}/>
             </div>
         )
