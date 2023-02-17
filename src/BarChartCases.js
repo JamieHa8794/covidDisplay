@@ -177,14 +177,21 @@ class BarChartCases extends Component{
 
 
         let bar2020 = {}
+        let bar2021 = {}
+        let bar2022 = {}
 
+        
         temp.map(_ =>{
             const newDate = addDays(date, 1);
             daysOfYear.push(months[newDate.getMonth()]+ '. ' + newDate.getDate())
 
-            const shortDate = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'20'
-            bar2020[shortDate] = 0;
+            const shortDate20 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'20'
+            const shortDate21 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'21'
+            const shortDate22 = (newDate.getMonth()+1)+'/'+newDate.getDate()+'/'+'22'
 
+            bar2020[shortDate20] = 0;
+            bar2021[shortDate21] = 0;
+            bar2022[shortDate22] = 0;
 
         })
 
@@ -203,7 +210,6 @@ class BarChartCases extends Component{
         }
 
         console.log(bar2020)
-        let bar2021 = []
         if(covidData2021){
             covidData2021.map(entry =>{
     
@@ -219,7 +225,6 @@ class BarChartCases extends Component{
             })
         }
 
-        let bar2022 = []
         if(covidData2022){
             covidData2022.map(entry =>{
     
@@ -243,16 +248,28 @@ class BarChartCases extends Component{
         }, 
         // {
         //     label: "2021", 
-        //     data: bar2021
+        //     data: Object.values(bar2021)
         // }, 
         // {
         //     label: "2022", 
-        //     data: bar2022
+        //     data: Object.values(bar2022)
         // }, 
         ]
         const options = {
             layout:{
                 padding: 0
+            },
+            scales:{
+                x:{
+                    ticks:{
+                        callback: (value, index, values) =>{
+                            if(labels[index].slice(-2) === '15'){
+                                return labels[index]
+                            }
+                            console.log(labels[index])
+                        }
+                    }
+                }
             }
         }
 
