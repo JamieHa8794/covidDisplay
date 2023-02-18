@@ -13,21 +13,7 @@ class Home extends Component{
     render(){
         return(
             <div >
-                {/* <Paper elevation={6} className='home-paper'>
-
-                
-                <div>
-                "COVID-19 is a respiratory disease caused by SARS-CoV-2, a coronavirus discovered in 2019. 
-                The virus spreads mainly from person to person through respiratory droplets and small particles produced when an infected person coughs, sneezes, or talks."
-                </div>
-                <a href='https://www.cdc.gov/dotw/covid-19/index.html'>
-                    -cdc.gov
-                </a>
-
-                </Paper> */}
-
-
-                <div className="container">
+                   <div className="container">
                     <img className='home-covid-img' src='./public/covid-19.jpeg'/>
                     <div className="content">
                         <h1 className='home-h1'>COVID-19</h1>
@@ -47,7 +33,7 @@ class Home extends Component{
                             color: '#B0C4DE'
                         }}
                         />
-                        <Link to='/'>
+                        <Link to='/symptoms'>
                         Symptoms
                         </Link>
                         <Link to='/CasesDailyTotal'>

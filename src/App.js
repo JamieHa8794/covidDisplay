@@ -6,6 +6,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';
 import Footer from './Footer'
+import Symptoms from './Symptoms';
 import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
@@ -31,6 +32,8 @@ class _App extends Component{
             <Router>
                 {/* <Route path='/' component={Nav}/> */}
                 <Route exact path='/' component={Home}/>
+                <Route exact path='/symptoms' component={Symptoms}/>
+
                 <Route exact path='/CasesDailyTotal' component={BarChartCasesDailyTotal}/>
                 <Route exact path='/CasesMontly' component={BarChartCasesMonthly}/>
                 <Route exact path='/DeathsMonthly' component={BarChartDeathsMonthly}/>
