@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Paper from '@mui/material/Paper';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 class Home extends Component{
     constructor(){
@@ -37,29 +38,44 @@ class Home extends Component{
                 </div>
                 <div className='home-nav'>
                     <div className='home-nav-sub-container'>
-                        <BarChartIcon 
-                        sx={{
-                            fontSize:'80',
-                            color: '#9370DB'
-                        }}
-                        />
-                        <div>
-                        Total Monthly Deaths
+                        <div className='home-nav-sub-title'>
+                            More Info
                         </div>
-                        <div>
-                        Total Monthly Cases
-                        </div>
-                        <div>
-                        Total Cases Daily
-                        </div>
-                    </div>
-                    <div>
                     <InfoIcon 
                         sx={{
                             fontSize:'80',
-                            color: '#9370DB'
+                            color: '#B0C4DE'
                         }}
                         />
+                        <Link to='/'>
+                        Symptoms
+                        </Link>
+                        <Link to='/CasesDailyTotal'>
+                        Variants
+                        </Link>
+                        <Link to='/CasesMontly'>
+                        Vaccines
+                        </Link>
+                    </div>
+                    <div className='home-nav-sub-container'>
+                        <div className='home-nav-sub-title'>
+                            Visualize the Spread
+                        </div>
+                        <BarChartIcon 
+                        sx={{
+                            fontSize:'80',
+                            color: '#B0C4DE'
+                        }}
+                        />
+                        <Link to='/DeathsMonthly'>
+                        Total Monthly Deaths
+                        </Link>
+                        <Link to='/CasesMontly'>
+                        Total Monthly Cases
+                        </Link>
+                        <Link to='/CasesDailyTotal'>
+                        Total Cases Daily
+                        </Link>
                     </div>
                 </div>
                         
