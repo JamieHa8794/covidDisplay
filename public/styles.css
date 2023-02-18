@@ -1,3 +1,71 @@
 body{
-    background-color: whitesmoke;
+    margin: 0px;;
+    background-color: whitesmoke
+}
+.main-box{
+    margin: 10px;
+}
+.home-paper{
+    margin: 100px;
+    padding: 20px;
+}
+nav{
+    height: 25px;
+    background-color: tan;
+
+    padding: 10px;
+}
+.home-img-qoute-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.home-text{
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+.container {
+    position: relative;
+    
+}
+
+.home-covid-img{
+    width: 100%
+}
+  
+.container .content {
+    position: absolute; /* Position the background text */
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100% - 100px;
+    padding-top: 50px; /* Some padding */
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+
+}
+.home-h1{
+    font-family: Times, Times New Roman, serif;
+    font-size: 30px;
+
+}
+
+.home-description{
+    font-family: Times, Times New Roman, serif;
+    font-size: 20px;
+}
+
+
+.home-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+.home-nav-sub-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center
 }

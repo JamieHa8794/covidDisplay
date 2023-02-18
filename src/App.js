@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router, Route } from 'react-router-dom';
+
+
+import Nav from './Nav';
+import Home from './Home';
 import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
@@ -22,16 +27,14 @@ class _App extends Component{
         const {statesInfo} = this.props.state
 
         return(
-            <div className='main-box'>
-                <h1>
-                    Covid Data
-                </h1>
-                <LineChartByState/>
-                <BarChartCasesDailyTotal/>
-                <BarChartCasesMonthly/>
-                <BarChartDeathsMonthly/>
+            <Router>
+                <Route path='/' component={Nav}/>
+                <Route path='/' component={Home}/>
+                <Route exact path='/CasesDailyTotal' component={BarChartCasesDailyTotal}/>
+                <Route exact path='/CasesMontly' component={BarChartCasesMonthly}/>
+                <Route exact path='/DeathsMonthly' component={BarChartDeathsMonthly}/>
+            </Router>
 
-            </div>
         )
     }
 }
