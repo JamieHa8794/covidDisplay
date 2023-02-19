@@ -1,9 +1,11 @@
 body{
     margin: 0px;;
-    background-color: whitesmoke
+    background-color: whitesmoke;
+    font-family: Times, Times New Roman, serif;
+
 }
 .main-box{
-    margin: 10px;
+    margin: 40px;
 }
 .home-paper{
     margin: 100px;
@@ -21,10 +23,12 @@ nav{
     justify-content: space-between;
 }
 .home-text{
-    font-family: Helvetica;
     font-size: 20px;
 }
-
+.home-nav{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .container {
     position: relative;
     
@@ -49,13 +53,11 @@ nav{
 
 }
 .home-h1{
-    font-family: Times, Times New Roman, serif;
     font-size: 30px;
 
 }
 
 .home-description{
-    font-family: Times, Times New Roman, serif;
     font-size: 20px;
 }
 
@@ -84,3 +86,67 @@ nav{
     background-color: #B0C4DE;
 }
 
+
+
+.symptoms-main-container{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+
+}
+.symptoms-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.symptoms-title{
+    font-size: 28px;
+}
+.symptoms-description{
+    font-size: 18px;
+    text-align: justify;
+}
+.symptoms-symptom-list-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.symptoms-symptom-list-ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.symptoms-symptom-list-li{
+    padding: 6px;
+}
+
+
+
+.symptoms-medical-attention-container{
+    background-color: rgb(222, 202, 176, .60);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 45px;
+
+    color: black;
+}
+
+
+.symptoms-medical-attention-tile-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.symptoms-medical-attention-title{
+    font-size: 25px;
+}
+.symptoms-medical-attention-list{
+    font-size: 18px;
+}

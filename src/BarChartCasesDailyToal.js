@@ -34,6 +34,7 @@ class BarChartCasesDailyTotal extends Component{
             year2022: true,
             USAState: 'USA',
             selectedIndex: 0,
+            scaleMax: 120000000,
 
             covidDataArr : [],
             covidData2020: [],
@@ -46,6 +47,7 @@ class BarChartCasesDailyTotal extends Component{
         this.handleYearChange = this.handleYearChange.bind(this)
         this.changeDataState = this.changeDataState.bind(this)
         this.resetCovidData = this.resetCovidData.bind(this)
+        this.handleChangeScaleMax = this.handleChangeScaleMax.bind(this)
     }
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
@@ -103,6 +105,13 @@ class BarChartCasesDailyTotal extends Component{
         return this.props.statesInfo.filter(entry => entry.year === resetYear)
 
     }
+    handleChangeScaleMax(event){
+        const change = {}
+        change[event.target.name] = event.target.value * 1;
+
+        console.log(change)
+        this.setState(change)
+    }
     changeDataState(event){
         const change = {}
         change[event.target.name] = event.target.value;
@@ -157,10 +166,12 @@ class BarChartCasesDailyTotal extends Component{
 
     render(){
         const { year2020, year2021, year2022, USAState, covidDataArr} = this.state
-        const {covidData2020, covidData2021, covidData2022} = this.state
-        const {handleYearChange, changeDataState} = this
+        const {covidData2020, covidData2021, covidData2022, scaleMax} = this.state
+        const {handleYearChange, changeDataState, handleChangeScaleMax} = this
         const {statesInfo} = this.props;
 
+        console.log(scaleMax)
+        const scaleMaxValues = [4000000,6000000,8000000, 10000000, 50000000, 100000000,120000000]
 
 
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
@@ -280,7 +291,7 @@ class BarChartCasesDailyTotal extends Component{
                 },
                 y: {
                     min: 0,
-                    max: 12000000
+                    max: scaleMax * 1
                 }
             }
         }
@@ -288,7 +299,7 @@ class BarChartCasesDailyTotal extends Component{
         if(USAState === 'USA'){
             options.scales.y = {
                 min: 0,
-                max: 120000000
+                max: scaleMax * 1
                 }
         }   
 
@@ -307,7 +318,15 @@ class BarChartCasesDailyTotal extends Component{
                     })
                     }
                 </select>
-                
+                <label>Y-Scale Max</label>
+                <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax}>
+                    {scaleMaxValues.map(scaleMaxValue =>{
+                        return(
+                            <option value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
+                        )
+                    })
+                    }
+                </select>
             </div>
         )
     }
