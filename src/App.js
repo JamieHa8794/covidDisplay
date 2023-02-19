@@ -10,6 +10,7 @@ import Symptoms from './Symptoms';
 import Vaccines from './Vaccines';
 import DeseaseInfo from './DeseaseInfo';
 import Visualize from './Visualize';
+import Testing from './Testing';
 
 
 
@@ -43,6 +44,8 @@ class _App extends Component{
                 <Route exact path='/Vaccines' component={Vaccines}/>
                 <Route exact path='/deseaseInfo' component={DeseaseInfo}/>
                 <Route exact path='/visualize' component={Visualize}/>
+                <Route exact path='/testing' component={Testing}/>
+
 
 
 

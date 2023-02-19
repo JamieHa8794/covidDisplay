@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 
 import MasksIcon from '@mui/icons-material/Masks';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 
 
 class Symptoms extends Component{
@@ -66,7 +68,7 @@ class Symptoms extends Component{
 
                 <div className='symptoms-medical-attention-container'>
                     <div className='symptoms-medical-attention-tile-container'>
-                        <LocalHospitalIcon
+                        <MedicalInformationIcon
                         sx={{
                             fontSize: '50',
                             mr: '10'
@@ -92,6 +94,14 @@ class Symptoms extends Component{
                     </div>
                     <div>
                     *This list is not all possible symptoms. Please call your medical provider for any other symptoms that are severe or concerning to you.
+                    </div>
+                </div>
+                <div className='symptoms-prepare-container'>
+                    <div className='symptoms-prepare-title'>
+                        Prepare and Stay Healthy
+                    </div>
+                    <div className='symptoms-prepare-description'>
+                        Get <Link className='symptoms-prepare-description-link' to='/vaccines'>vaccinated</Link> and stay up to date with all recommended doses.
                     </div>
                 </div>
             </div>

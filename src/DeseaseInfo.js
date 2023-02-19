@@ -21,8 +21,10 @@ class DeseaseInfo extends Component{
             <div className='main-box'>
                 <Paper elevation={6}
                 sx={{
-                    marginTop: '100',
-                    marginBottom: '100'
+                    marginTop: '80',
+                    marginBottom: '80',
+                    marginLeft: '80',
+                    marginRight: '80',
                 }}
                 >
                     <div className='deseaseInfo-container'>
@@ -60,6 +62,21 @@ class DeseaseInfo extends Component{
                             }}
                             >
                                 Vaccines
+                            </Button>
+                            <Button
+                            onClick={()=> toLink('testing')}
+                            sx={{ 
+                                color: 'black', 
+                                display: 'block',
+                                fontFamily: 'Times, Times New Roman, serif',
+                                '&:hover': {
+                                    textDecoration: 'underline',
+                                    backgroundColor: 'rgb(222, 202, 176, .60);',
+                                },
+                                
+                            }}
+                            >
+                                Testing
                             </Button>
                         </div>
                     </div>
