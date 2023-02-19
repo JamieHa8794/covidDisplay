@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 
 import VaccinesIcon from '@mui/icons-material/Vaccines';
@@ -78,19 +79,27 @@ class Vaccines extends Component{
                         </div>
                         <ul className='vaccines-list-ul'>
                             <li className='vaccines-list-li'>
-                            <b>Moderna:</b>
-                                <li className='vaccines-list-li-li'>
-                                Everyone 6 months and older who received the Moderna primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
-                                </li>
+                                <b>Moderna:</b>
+                                    <div>
+                                        <ul>
+                                            <li className='vaccines-list-li-li'>
+                                            Everyone 6 months and older who received the Moderna primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
+                                            </li>
+                                        </ul>
+                                    </div>
                             </li>
                             <li className='vaccines-list-li'>
-                            <b>Pfizer:</b>
-                                <li className='vaccines-list-li-li'>
-                                Everyone 5 years and older who received the Pfizer primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
-                                </li>
-                                <li className='vaccines-list-li-li'>
-                                Children 6 months to 4 years who received the Pfizer primary series are not eligible for a booster dose at this time. However, people in this age group that have not received all three doses of the Pfizer primary series will now receive a bivalent shot for their third dose.
-                                </li>
+                                <b>Pfizer:</b>
+                                    <div>
+                                        <ul>
+                                            <li className='vaccines-list-li-li'>
+                                            Everyone 5 years and older who received the Pfizer primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
+                                            </li>
+                                            <li className='vaccines-list-li-li'>
+                                            Children 6 months to 4 years who received the Pfizer primary series are not eligible for a booster dose at this time. However, people in this age group that have not received all three doses of the Pfizer primary series will now receive a bivalent shot for their third dose.
+                                            </li>
+                                        </ul>
+                                    </div>
                             </li>
                             
                         </ul>
@@ -116,6 +125,15 @@ class Vaccines extends Component{
                     </div>
 
 
+                </div>
+
+                <div className='vaccines-sick-container'>
+                    <div className='vaccines-sick-title'>
+                        Feeling Sick? 
+                    </div>
+                    <div className='vaccines-sick-description'>
+                        Read more about the list of currently known <Link className='vaccines-sick-description-link' to='/symptoms'>symptoms</Link>.
+                    </div>
                 </div>
 
 

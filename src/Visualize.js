@@ -21,47 +21,133 @@ class Visualize extends Component{
             <div className='main-box'>
                 <Paper elevation={6}
                 sx={{
-                    marginTop: '100',
-                    marginBottom: '100'
+                    marginTop: '80',
+                    marginBottom: '80',
+                    marginLeft: '80',
+                    marginRight: '80',
+
                 }}
                 >
-                    <div className='deseaseInfo-container'>
-                        <div className='deseaseInfo-container-sub'>
-                            <div className='deseaseInfo-title'>
+                    <div className='visualize-container'>
+                        <div className='visualize-container-sub'>
+                            <div className='visualize-title'>
                                 Visualize the Spread:
                             </div>
-                            <Button
-                            onClick={()=> toLink('symptoms')}
-                            sx={{ 
-                                color: 'black', 
-                                display: 'block',
-                                fontFamily: 'Times, Times New Roman, serif',
-                                '&:hover': {
-                                    textDecoration: 'underline',
-                                    backgroundColor: 'rgb(222, 202, 176, .60);',
-                                },
-                                
-                            }}
-                            >
-                                Symptoms
-                            </Button>
-                            <Button
-                            onClick={()=> toLink('vaccines')}
-                            sx={{ 
-                                color: 'black', 
-                                display: 'block',
-                                fontFamily: 'Times, Times New Roman, serif',
-                                '&:hover': {
-                                    textDecoration: 'underline',
-                                    backgroundColor: 'rgb(222, 202, 176, .60);',
-                                },
-                                
-                            }}
-                            >
-                                Vaccines
-                            </Button>
+
+                            {/*
+                            
+                            BAR CHARTS
+                            
+                            */}
+
+                            <div className='visualize-chart-sub-container'>
+                                <div className='visualize-chart-sub-title'>
+                                    Bar Charts:
+                                </div>
+                                <Button
+                                onClick={()=> toLink('CasesMontly')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Cases Monthly
+                                </Button>
+                                <Button
+                                onClick={()=> toLink('DeathsMonthly')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Deaths Monthly
+                                </Button>
+                                <Button
+                                onClick={()=> toLink('CasesDailyTotal')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Cases - Daily Total
+                                </Button>
+                            </div>
+
+                            {/*
+                            
+                            PIE CHARTS
+                            
+                            */}
+                            <div className='visualize-chart-sub-container'>
+                                <div className='visualize-chart-sub-title'>
+                                    Bar Charts:
+                                </div>
+                                <Button
+                                onClick={()=> toLink('CasesMontly')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Cases Monthly
+                                </Button>
+                                <Button
+                                onClick={()=> toLink('DeathsMonthly')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Deaths Monthly
+                                </Button>
+                                <Button
+                                onClick={()=> toLink('CasesDailyTotal')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Cases - Daily Total
+                                </Button>
+                            </div>
                         </div>
-                        <img className='deseaseInfo-img' src='./public/covid-19-scientist-cartoon.jpeg'/>
+                        <img className='visualize-img' src='./public/covid-19-scientist-cartoon.jpeg'/>
                     </div>
                 </Paper>
             </div>
