@@ -60,7 +60,7 @@ class Vaccines extends Component{
                 <div className='vaccines-title-container'>
                     <AddCircleOutlineIcon
                         sx={{
-                            fontSize: '50',
+                            fontSize: '45',
                             mr: '10'
                         }}
                         />

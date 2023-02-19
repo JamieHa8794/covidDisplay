@@ -17,6 +17,29 @@ nav{
 
     padding: 10px;
 }
+.footer-container{
+    margin-top: 50px;
+    height: 100px;
+    background-color: #B0C4DE;
+    padding: 25px;
+    text-align: justify;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer-disclaimer{
+    font-size: 14px;
+    color: white;
+    opacity: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.footer-disclaimer-link{
+    color: white;
+}
+
+
 .home-img-qoute-container{
     display: flex;
     flex-direction: row;
@@ -80,11 +103,6 @@ nav{
 
 
 
-.footer-container{
-    margin-top: 50px;
-    height: 200px;
-    background-color: #B0C4DE;
-}
 
 
 
