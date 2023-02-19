@@ -30,7 +30,7 @@ class _App extends Component{
 
         return(
             <Router>
-                {/* <Route path='/' component={Nav}/> */}
+                <Route path='/' component={Nav}/>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/symptoms' component={Symptoms}/>
 
