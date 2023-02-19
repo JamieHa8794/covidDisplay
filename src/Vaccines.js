@@ -78,13 +78,13 @@ class Vaccines extends Component{
                         </div>
                         <ul className='vaccines-list-ul'>
                             <li className='vaccines-list-li'>
-                                Moderna:
+                            <b>Moderna:</b>
                                 <li className='vaccines-list-li-li'>
                                 Everyone 6 months and older who received the Moderna primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
                                 </li>
                             </li>
                             <li className='vaccines-list-li'>
-                                Pfizer
+                            <b>Pfizer:</b>
                                 <li className='vaccines-list-li-li'>
                                 Everyone 5 years and older who received the Pfizer primary series should receive a bivalent booster dose at least two months after their last vaccine dose (even if they have received prior booster shots).
                                 </li>
@@ -96,7 +96,29 @@ class Vaccines extends Component{
                         </ul>
                     </div>
 
+
+
+                    <div className='vaccines-list-container'>
+                        <div className='vaccines-description'>
+                            Updated (bivalent) boosters became available on:
+                        </div>
+                        <ul className='vaccines-list-ul'>
+                            <li className='vaccines-list-li'>
+                            <b>September 2, 2022,</b> for people aged 12 years and older
+                            </li>
+                            <li className='vaccines-list-li'>
+                            <b>October 12, 2022,</b> for people aged 5–11 years
+                            </li>
+                            <li className='vaccines-list-li'>
+                            <b>December 9, 2022,</b> for children aged 6 months–4 years who completed the Moderna COVID-19 vaccine primary series
+                            </li>
+                        </ul>
+                    </div>
+
+
                 </div>
+
+
 
             </div>
         )

@@ -2,7 +2,6 @@ body{
     margin: 0px;;
     background-color: whitesmoke;
     font-family: Times, Times New Roman, serif;
-
 }
 
 .main-box{
@@ -104,6 +103,28 @@ nav{
 
 
 
+.deseaseInfo-container{
+    display: flex;
+    flex-direction: row;
+}
+.deseaseInfo-title{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.deseaseInfo-img{
+    width: 60%;
+    
+    opacity: 85%;
+}
+.deseaseInfo-container-sub{
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
