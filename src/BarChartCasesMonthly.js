@@ -40,6 +40,18 @@ class BarChartCasesMonthly extends Component{
         this.changeDataState = this.changeDataState.bind(this)
         this.resetCovidData = this.resetCovidData.bind(this)
     }
+    componentDidMount(){
+        const {statesInfo} = this.props
+        const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
+        const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
+        const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
+        this.setState({
+            covidDataArr: this.props.statesInfo,
+            covidData2020: data2020,
+            covidData2021: data2021,
+            covidData2022: data2022,
+        }) 
+    }
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
         if(prevProps.statesInfo.length == 0 && this.props.statesInfo.length > 0){

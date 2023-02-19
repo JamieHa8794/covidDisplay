@@ -49,15 +49,28 @@ class BarChartCasesDailyTotal extends Component{
         this.resetCovidData = this.resetCovidData.bind(this)
         this.handleChangeScaleMax = this.handleChangeScaleMax.bind(this)
     }
+    componentDidMount(){
+        const {statesInfo} = this.props
+        const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
+        const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
+        const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
+        this.setState({
+            covidDataArr: this.props.statesInfo,
+            covidData2020: data2020,
+            covidData2021: data2021,
+            covidData2022: data2022,
+        }) 
+    }
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
         if(prevProps.statesInfo.length == 0 && this.props.statesInfo.length > 0){
-            this.setState({covidDataArr: this.props.statesInfo})
+            // this.setState({})
 
             const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
             const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
             const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
             this.setState({
+                covidDataArr: this.props.statesInfo,
                 covidData2020: data2020,
                 covidData2021: data2021,
                 covidData2022: data2022,
@@ -171,7 +184,7 @@ class BarChartCasesDailyTotal extends Component{
         const {statesInfo} = this.props;
 
         console.log(scaleMax)
-        const scaleMaxValues = [4000000,6000000,8000000, 10000000, 50000000, 100000000,120000000]
+        const scaleMaxValues = [250000, 500000, 1000000,4000000,6000000,8000000, 10000000, 50000000, 100000000,120000000]
 
 
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
@@ -303,6 +316,8 @@ class BarChartCasesDailyTotal extends Component{
                 }
         }   
 
+        console.log(bar2020, bar2021, bar2022)
+        console.log(covidData2020, covidData2021, covidData2022)
         return(
             <div className='main-box'>
                 <h1>Bar Chart - Cases</h1>
