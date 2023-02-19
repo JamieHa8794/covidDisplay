@@ -7,6 +7,8 @@ import Nav from './Nav';
 import Home from './Home';
 import Footer from './Footer'
 import Symptoms from './Symptoms';
+import Vaccines from './Vaccines';
+
 import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
@@ -33,6 +35,7 @@ class _App extends Component{
                 <Route path='/' component={Nav}/>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/symptoms' component={Symptoms}/>
+                <Route exact path='/Vaccines' component={Vaccines}/>
 
                 <Route exact path='/CasesDailyTotal' component={BarChartCasesDailyTotal}/>
                 <Route exact path='/CasesMontly' component={BarChartCasesMonthly}/>

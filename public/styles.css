@@ -150,3 +150,40 @@ nav{
 .symptoms-medical-attention-list{
     font-size: 18px;
 }
+
+
+
+.vaccines-main-container{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+
+}
+.vaccines-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.vaccines-title{
+    font-size: 28px;
+}
+.vaccines-description{
+    font-size: 18px;
+    text-align: justify;
+}
+
+.vaccines-list-container{
+    display: flex;
+    flex-direction: row;
+}
+.vaccines-list-ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.vaccines-list-li{
+    padding: 6px;
+}

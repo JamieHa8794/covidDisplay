@@ -36,10 +36,10 @@ class Home extends Component{
                         <Link to='/symptoms'>
                         Symptoms
                         </Link>
-                        <Link to='/CasesDailyTotal'>
+                        <Link to='/variants'>
                         Variants
                         </Link>
-                        <Link to='/CasesMontly'>
+                        <Link to='/vaccines'>
                         Vaccines
                         </Link>
                     </div>

@@ -31,7 +31,6 @@ class Symptoms extends Component{
                         }}
                         />
                         <div className='symptoms-title'>
-
                         Symptoms of COVID-19
                         </div>
                     </div>
