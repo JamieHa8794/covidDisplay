@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
-
+import ScrollToTop from './ScrollToTop'
 
 import Nav from './Nav';
 import Home from './Home';
@@ -32,6 +32,7 @@ class _App extends Component{
 
         return(
             <Router>
+                <ScrollToTop/>
                 <Route path='/' component={Nav}/>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/symptoms' component={Symptoms}/>
