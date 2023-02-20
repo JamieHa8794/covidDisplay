@@ -33,14 +33,14 @@ class Home extends Component{
                             color: '#B0C4DE'
                         }}
                         />
-                        <Link to='/symptoms'>
+                        <Link className='link' to='/symptoms'>
                         Symptoms
                         </Link>
-                        <Link to='/variants'>
-                        Variants
-                        </Link>
-                        <Link to='/vaccines'>
+                        <Link className='link' to='/vaccines'>
                         Vaccines
+                        </Link>
+                        <Link className='link' to='/testing'>
+                        Testing
                         </Link>
                     </div>
                     <div className='home-nav-sub-container'>
@@ -53,13 +53,13 @@ class Home extends Component{
                             color: '#B0C4DE'
                         }}
                         />
-                        <Link to='/DeathsMonthly'>
+                        <Link className='link' to='/DeathsMonthly'>
                         Total Monthly Deaths
                         </Link>
-                        <Link to='/CasesMontly'>
+                        <Link className='link' to='/CasesMontly'>
                         Total Monthly Cases
                         </Link>
-                        <Link to='/CasesDailyTotal'>
+                        <Link className='link' to='/CasesDailyTotal'>
                         Total Cases Daily
                         </Link>
                     </div>

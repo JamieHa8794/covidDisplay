@@ -67,7 +67,7 @@ class Symptoms extends Component{
                 </div>
 
                 <div className='symptoms-medical-attention-container'>
-                    <div className='symptoms-medical-attention-tile-container'>
+                    <div className='symptoms-medical-attention-title-container'>
                         <MedicalInformationIcon
                         sx={{
                             fontSize: '50',
@@ -79,13 +79,13 @@ class Symptoms extends Component{
                         </div>
                     </div>
                     <div className='symptoms-medical-attention-description'>
-                    If you have emergency COVID-19 signs and symptoms, seek care immediately. Emergency signs and symptoms can include*:
+                        If you have emergency COVID-19 signs and symptoms, seek care immediately. Emergency signs and symptoms can include*:
                     </div>
                     <div className='symptoms-medical-attention-list'>
                         <ul>
                             {warningSigns.map(sign=>{
                                 return(
-                                    <li>
+                                    <li className='symptoms-medical-attention-li'>
                                         {sign}
                                     </li>
                                 )
@@ -101,7 +101,7 @@ class Symptoms extends Component{
                         Prepare and Stay Healthy
                     </div>
                     <div className='symptoms-prepare-description'>
-                        Get <Link className='symptoms-prepare-description-link' to='/vaccines'>vaccinated</Link> and stay up to date with all recommended doses.
+                        Get <Link className='link' to='/vaccines'>vaccinated</Link> and stay up to date with all recommended doses.
                     </div>
                 </div>
             </div>

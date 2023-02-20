@@ -3,7 +3,9 @@ body{
     background-color: whitesmoke;
     font-family: Times, Times New Roman, serif;
 }
-
+.link{
+    color: black;
+}
 .main-box{
     margin: 40px;
 }
@@ -215,9 +217,7 @@ nav{
 
     color: black;
 }
-
-
-.symptoms-medical-attention-tile-container{
+.symptoms-medical-attention-title-container{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -227,8 +227,17 @@ nav{
 .symptoms-medical-attention-title{
     font-size: 25px;
 }
-.symptoms-medical-attention-list{
+.symptoms-medical-attention-description{
     font-size: 18px;
+}
+.symptoms-medical-attention-list{
+    font-size: 16px;
+}
+
+.symptoms-medical-attention-li{
+    font-size: 16px;
+
+    padding: 4px;
 }
 
 .symptoms-prepare-container{
@@ -244,9 +253,7 @@ nav{
     font-size: 18px;
     text-align: justify;
 }
-.symptoms-prepare-description-link{
-    color: black;
-}
+
 
 
 
@@ -317,9 +324,7 @@ nav{
     font-size: 18px;
     text-align: justify;
 }
-.vaccines-sick-description-link{
-    color: black;
-}
+
 
 
 
@@ -368,6 +373,36 @@ nav{
 }
 .testing-list-li{
     font-size: 18px;
+
+    padding: 6px;
+}
+
+
+.testing-resources-container{
+    background-color: rgb(222, 202, 176, .60);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 45px;
+
+    color: black;
+}
+.testing-resources-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.testing-resources-title{
+    font-size: 25px;
+}
+.testing-resources-list{
+    font-size: 18px;
+}
+.testing-resources-li{
+    font-size: 16px;
 
     padding: 6px;
 }

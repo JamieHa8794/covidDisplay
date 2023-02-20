@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Link } from "react-router-dom";
 
 class Footer extends Component{
     constructor(){
@@ -13,7 +14,7 @@ class Footer extends Component{
                     Always seek the advice of your doctor or other qualified health provider regarding a medical condition.
                 </div>
                 <div className="footer-disclaimer">
-                For more information please visit: <a className='footer-disclaimer-link' href='https://www.cdc.gov/'>cdc.gov</a> or <a className='footer-disclaimer-link' href='https://www.nyc.gov/site/doh/covid/covid-19-main.page'>NYC Health</a>
+                For more information please visit: <Link className='footer-disclaimer-link' to='https://www.cdc.gov/'>cdc.gov</Link> or <Link className='footer-disclaimer-link' to='https://www.nyc.gov/site/doh/covid/covid-19-main.page'>NYC Health</Link>
                 </div>
 
             </div>

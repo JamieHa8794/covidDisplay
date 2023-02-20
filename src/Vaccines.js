@@ -132,7 +132,7 @@ class Vaccines extends Component{
                         Feeling Sick? 
                     </div>
                     <div className='vaccines-sick-description'>
-                        Read more about the list of currently known <Link className='vaccines-sick-description-link' to='/symptoms'>symptoms</Link>.
+                        Read more about the list of currently known <Link className='link' to='/symptoms'>symptoms</Link>.
                     </div>
                 </div>
 
