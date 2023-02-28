@@ -9,7 +9,6 @@ class PieChart extends Component{
         super();
         this.state ={
             covidDataArr : [],
-
         }
     }
     componentDidMount(){
@@ -44,17 +43,34 @@ class PieChart extends Component{
 
         console.log(stateNames)
         console.log(caseNumbers)
-        console.log(covidDataArr)
+
+
+        const caseNumbersSorted = [...caseNumbers];
+        caseNumbersSorted.sort(function(a, b) {
+            return b - a;
+          });
+
+        console.log(caseNumbers)
+        console.log(caseNumbersSorted)
+
+        const stateNamesTop5 = []
+        const caseNumbersTop5 = []
+        for(let i = 0; i < 5 * 1; i++){
+            const stateName = Object.keys(byState).find(key => byState[key] === caseNumbersSorted[i])
+            stateNamesTop5.push(stateName)
+            caseNumbersTop5.push(caseNumbersSorted[i])
+            console.log(0)
+        }
 
 
 
 
         const data = {
-            labels: stateNames,
+            labels: stateNamesTop5,
             datasets: [
               {
                 label: '# of Cases',
-                data: caseNumbers,
+                data: caseNumbersTop5,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -81,6 +97,7 @@ class PieChart extends Component{
 
         return(
             <div className='main-box'>
+                <div className='PieChart-Title'>Highest Cases by State</div>
                 <Pie data={data} />
             </div>
         )
