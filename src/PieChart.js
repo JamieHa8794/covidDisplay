@@ -9,10 +9,15 @@ class PieChart extends Component{
         super();
         this.state ={
             covidDataArr : [],
+            numOfStates: '10',
         }
+        this.numOfStatesChange = this.numOfStatesChange.bind(this)
     }
     componentDidMount(){
-
+        const {statesInfo} = this.props
+        this.setState({
+            covidDataArr: this.props.statesInfo,
+        })
     }
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
@@ -22,8 +27,14 @@ class PieChart extends Component{
             })
         }
     }
+    numOfStatesChange(event){
+        const change = {}
+        change[event.target.name] = event.target.value;
+        this.setState(change)
+    }
     render(){
-        const {covidDataArr} = this.state;
+        const {covidDataArr, numOfStates} = this.state;
+        const {numOfStatesChange} = this
 
         const byState = {}
         covidDataArr.map(entry =>{
@@ -55,11 +66,10 @@ class PieChart extends Component{
 
         const stateNamesTop5 = []
         const caseNumbersTop5 = []
-        for(let i = 0; i < 5 * 1; i++){
+        for(let i = 0; i < numOfStates * 1; i++){
             const stateName = Object.keys(byState).find(key => byState[key] === caseNumbersSorted[i])
             stateNamesTop5.push(stateName)
             caseNumbersTop5.push(caseNumbersSorted[i])
-            console.log(0)
         }
 
 
@@ -99,6 +109,14 @@ class PieChart extends Component{
             <div className='main-box'>
                 <div className='PieChart-Title'>Highest Cases by State</div>
                 <Pie data={data} />
+
+                <select name='numOfStates' value={numOfStates} onChange={numOfStatesChange}>
+                    <option value='5'>5</option>
+                    <option value='10'>10</option>
+                    <option value='25'>25</option>
+                    <option value='50'>50</option>
+                    <option value='56'>All</option>
+                </select>
             </div>
         )
     }
