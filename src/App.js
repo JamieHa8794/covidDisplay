@@ -18,7 +18,9 @@ import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
 import LineChartByState from './LineChartByState';
-import PieChart from './PieChart';
+import PieChartStatesHighestCases from './PieChartStatesHighestCases';
+import PieChartStatesLowestCases from './PieChartStatesLowestCases';
+
 
 import { loading, loadCountries, loadStates } from './store';
 
@@ -53,7 +55,8 @@ class _App extends Component{
                 <Route exact path='/CasesDailyTotal' component={BarChartCasesDailyTotal}/>
                 <Route exact path='/CasesMontly' component={BarChartCasesMonthly}/>
                 <Route exact path='/DeathsMonthly' component={BarChartDeathsMonthly}/>
-                <Route exact path='/StatesHighestCases' component={PieChart}/>
+                <Route exact path='/StatesHighestCases' component={PieChartStatesHighestCases}/>
+                <Route exact path='/StatesLowestCases' component={PieChartStatesLowestCases}/>
                 <Route path='/' component={Footer}/>
 
             </Router>

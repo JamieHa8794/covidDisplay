@@ -98,10 +98,10 @@ class Visualize extends Component{
                             */}
                             <div className='visualize-chart-sub-container'>
                                 <div className='visualize-chart-sub-title'>
-                                    Bar Charts:
+                                    Pie Charts:
                                 </div>
                                 <Button
-                                onClick={()=> toLink('CasesMontly')}
+                                onClick={()=> toLink('StatesHighestCases')}
                                 sx={{ 
                                     color: 'black', 
                                     display: 'block',
@@ -113,10 +113,10 @@ class Visualize extends Component{
                                     
                                 }}
                                 >
-                                    Cases Monthly
+                                    States - Highest Cases
                                 </Button>
                                 <Button
-                                onClick={()=> toLink('DeathsMonthly')}
+                                onClick={()=> toLink('StatesLowestCases')}
                                 sx={{ 
                                     color: 'black', 
                                     display: 'block',
@@ -128,10 +128,10 @@ class Visualize extends Component{
                                     
                                 }}
                                 >
-                                    Deaths Monthly
+                                    States - Lowest Cases
                                 </Button>
                                 <Button
-                                onClick={()=> toLink('CasesDailyTotal')}
+                                onClick={()=> toLink('XXXXXXXXXX')}
                                 sx={{ 
                                     color: 'black', 
                                     display: 'block',
@@ -143,7 +143,7 @@ class Visualize extends Component{
                                     
                                 }}
                                 >
-                                    Cases - Daily Total
+                                    XXXXXXXXXX
                                 </Button>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import { Pie } from 'react-chartjs-2';
 
 
 
-class PieChart extends Component{
+class PieChartStatesLowestCases extends Component{
     constructor(){
         super();
         this.state ={
@@ -58,7 +58,7 @@ class PieChart extends Component{
 
         const caseNumbersSorted = [...caseNumbers];
         caseNumbersSorted.sort(function(a, b) {
-            return b - a;
+            return a - b;
           });
 
         console.log(caseNumbers)
@@ -82,20 +82,34 @@ class PieChart extends Component{
                 label: '# of Cases',
                 data: caseNumbersTop5,
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
+                    'rgb(72, 143, 49, 1)',
+                    'rgb(106, 160, 64, 1)',
+                    'rgb(137, 176, 80, 1)',
+                    'rgb(167, 193, 98, 1)',
+                    'rgb(197, 210, 117, 1)',
+                    'rgb(226, 228, 137, 1',
+                    'rgb(255, 245, 159, 1)',
+                    'rgb(252, 217, 131, 1)',
+                    'rgb(248, 188, 108, 1)',
+                    'rgb(244, 158, 92, 1)',
+                    'rgb(236, 128, 82, 1)',
+                    'rgb(226, 96, 79, 1)',
+                    'rgb(222, 66, 91, 1)',
                 ],
                 borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
+                'rgb(72, 143, 49, 1)',
+                'rgb(106, 160, 64, 1)',
+                'rgb(137, 176, 80, 1)',
+                'rgb(167, 193, 98, 1)',
+                'rgb(197, 210, 117, 1)',
+                'rgb(226, 228, 137, 1',
+                'rgb(255, 245, 159, 1)',
+                'rgb(252, 217, 131, 1)',
+                'rgb(248, 188, 108, 1)',
+                'rgb(244, 158, 92, 1)',
+                'rgb(236, 128, 82, 1)',
+                'rgb(226, 96, 79, 1)',
+                'rgb(222, 66, 91, 1)',
                 ],
                 borderWidth: 1,
               },
@@ -107,7 +121,7 @@ class PieChart extends Component{
 
         return(
             <div className='main-box'>
-                <div className='PieChart-Title'>Highest Cases by State</div>
+                <div className='PieChart-Title'>Lowest Cases by State & Territory</div>
                 <div className='chartContainerPieChart'>
 
                 <Pie data={data} />
@@ -133,4 +147,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps)(PieChart)
+export default connect(mapStateToProps)(PieChartStatesLowestCases)
