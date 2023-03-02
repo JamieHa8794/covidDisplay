@@ -108,8 +108,11 @@ class PieChart extends Component{
         return(
             <div className='main-box'>
                 <div className='PieChart-Title'>Highest Cases by State</div>
+                <div className='chartContainerPieChart'>
+
                 <Pie data={data} />
 
+                </div>
                 <select name='numOfStates' value={numOfStates} onChange={numOfStatesChange}>
                     <option value='5'>5</option>
                     <option value='10'>10</option>

@@ -413,3 +413,15 @@ nav{
     font-size: 40px;
     margin-bottom: 20px;
 }
+
+
+.chartContainer{
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+.chartContainerPieChart{
+    margin-left: 150px;
+    margin-right: 150px;
+
+}

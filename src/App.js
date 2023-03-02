@@ -53,7 +53,7 @@ class _App extends Component{
                 <Route exact path='/CasesDailyTotal' component={BarChartCasesDailyTotal}/>
                 <Route exact path='/CasesMontly' component={BarChartCasesMonthly}/>
                 <Route exact path='/DeathsMonthly' component={BarChartDeathsMonthly}/>
-                <Route exact path='/PieChart' component={PieChart}/>
+                <Route exact path='/StatesHighestCases' component={PieChart}/>
                 <Route path='/' component={Footer}/>
 
             </Router>

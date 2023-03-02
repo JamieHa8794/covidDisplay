@@ -227,9 +227,6 @@ class BarChartCasesMonthly extends Component{
         ]
 
         const options = {
-            layout:{
-                padding: 20
-            },
             scales:{
                 x:{
                     categoryPercentage: 1.0,
@@ -240,8 +237,11 @@ class BarChartCasesMonthly extends Component{
         return(
             <div className='main-box'>
                 <h1>Bar Chart - Cases - Monthly</h1>
-                <Bar data={{labels, datasets}} options={options}/>
+                <div className='chartContainer'>
+
+                    <Bar data={{labels, datasets}} options={options}/>
                 
+                </div>
                 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
                 <FormLabel component="legend">Years:</FormLabel>
 

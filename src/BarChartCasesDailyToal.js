@@ -288,9 +288,6 @@ class BarChartCasesDailyTotal extends Component{
 
  
         const options = {
-            layout:{
-                padding: 20
-            },
             scales:{
                 x:{
                     barPercentage: 1,
@@ -321,8 +318,11 @@ class BarChartCasesDailyTotal extends Component{
         return(
             <div className='main-box'>
                 <h1>Bar Chart - Cases</h1>
-                <Bar data={{labels, datasets}} options={options}/>
+                <div className='chartContainer'>
 
+                    <Bar data={{labels, datasets}} options={options}/>
+
+                </div>
                 <select value={USAState} name='USAState' onChange={changeDataState}>
                     <option value='USA'>USA</option>
 

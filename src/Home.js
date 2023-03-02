@@ -62,6 +62,9 @@ class Home extends Component{
                         <Link className='link' to='/CasesDailyTotal'>
                         Total Cases Daily
                         </Link>
+                        <Link className='link' to='/StatesHighestCases'>
+                        States - Highest Cases
+                        </Link>
                     </div>
                 </div>
                         
