@@ -214,14 +214,17 @@ class BarChartDeathsMonthly extends Component{
         const datasets = [{
             label: "2020", 
             data: bar2020,
+            backgroundColor: "rgb(253, 128, 111, 0.75)",
         }, 
         {
             label: "2021", 
-            data: bar2021
+            data: bar2021,
+            backgroundColor: "rgb(139, 211, 199, .75)", 
         }, 
         {
             label: "2022", 
-            data: bar2022
+            data: bar2022,
+            backgroundColor: "rgb(179, 191, 209, .75)", 
         }, 
 
         ]
@@ -242,41 +245,45 @@ class BarChartDeathsMonthly extends Component{
                     <Bar data={{labels, datasets}} options={options}/>
                 
                 </div>
-                <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-                <FormLabel component="legend">Years:</FormLabel>
+                <div className="options-container">
+                    <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+                    <FormLabel component="legend">Years:</FormLabel>
 
-                    <FormGroup>
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2020} onChange={()=>handleYearChange('year2020')} name="year2020" />
-                        }
-                        label="2020"
-                    />
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2021} onChange={()=>handleYearChange('year2021')} name="year2021" />
-                        }
-                        label="2021"
-                    />
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={year2022} onChange={()=>handleYearChange('year2022')} name="year2022" />
-                        }
-                        label="2022"
-                    />
-                    </FormGroup>
-                </FormControl>
+                        <FormGroup>
+                        <FormControlLabel
+                            control={
+                            <Checkbox checked={year2020} onChange={()=>handleYearChange('year2020')} name="year2020" />
+                            }
+                            label="2020"
+                        />
+                        <FormControlLabel
+                            control={
+                            <Checkbox checked={year2021} onChange={()=>handleYearChange('year2021')} name="year2021" />
+                            }
+                            label="2021"
+                        />
+                        <FormControlLabel
+                            control={
+                            <Checkbox checked={year2022} onChange={()=>handleYearChange('year2022')} name="year2022" />
+                            }
+                            label="2022"
+                        />
+                        </FormGroup>
+                    </FormControl>
+                    <div className="select-container">
+                        <label className="select-label">State:</label>
+                        <select value={USAState} name='USAState' onChange={changeDataState}>
+                            <option value='USA'>USA</option>
 
-                <select value={USAState} name='USAState' onChange={changeDataState}>
-                    <option value='USA'>USA</option>
-
-                    {USAStateList.map(stateName =>{
-                        return(
-                            <option value={stateName}>{stateName}</option>
-                        )
-                    })
-                    }
-                </select>
+                            {USAStateList.map(stateName =>{
+                                return(
+                                    <option value={stateName}>{stateName}</option>
+                                )
+                            })
+                            }
+                        </select>
+                    </div>
+                </div>
                 
             </div>
         )

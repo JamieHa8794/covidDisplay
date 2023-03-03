@@ -106,7 +106,13 @@ class PieChartStatesLowestCases extends Component{
             ],
           };
           
-
+          const options =  {
+            plugins: {
+                legend: {
+                position: 'bottom'
+                }
+            }
+        }
 
 
         return(
@@ -114,7 +120,7 @@ class PieChartStatesLowestCases extends Component{
                 <div className='PieChart-Title'>Lowest Cases by State & Territory</div>
                 <div className='chartContainerPieChart'>
 
-                <Pie data={data} />
+                <Pie data={data} options={options}/>
 
                 </div>
                 <select name='numOfStates' value={numOfStates} onChange={numOfStatesChange}>

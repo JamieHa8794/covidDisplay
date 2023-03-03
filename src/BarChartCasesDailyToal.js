@@ -285,14 +285,16 @@ class BarChartCasesDailyTotal extends Component{
             categoryPercentage: 1,
             barPercentage: 1.0,
             hoverBackgroundColor: 'grey',
-            hoverBorderRadius: 1
+            hoverBorderRadius: 1,
+            backgroundColor: "rgb(253, 128, 111, 0.75)",
         }, 
         {
             label: "2021", 
             data: Object.values(bar2021),
             categoryPercentage: 1,
             barPercentage: 1.0,
-            hoverBackgroundColor: 'grey'
+            hoverBackgroundColor: 'grey',
+            backgroundColor: "rgb(139, 211, 199, .75)", 
 
         }, 
         {
@@ -300,7 +302,8 @@ class BarChartCasesDailyTotal extends Component{
             data: Object.values(bar2022),
             categoryPercentage: 1,
             barPercentage: 1.0,
-            hoverBackgroundColor: 'grey'
+            hoverBackgroundColor: 'grey',
+            backgroundColor: "rgb(179, 191, 209, .75)", 
 
         }, 
         ]
