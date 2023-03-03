@@ -41,6 +41,9 @@ class BarChartCasesDailyTotal extends Component{
             covidData2021: [],
             covidData2022: [],
 
+            auto: false,
+            scaleDisabled: false,
+
 
         }
 
@@ -48,6 +51,7 @@ class BarChartCasesDailyTotal extends Component{
         this.changeDataState = this.changeDataState.bind(this)
         this.resetCovidData = this.resetCovidData.bind(this)
         this.handleChangeScaleMax = this.handleChangeScaleMax.bind(this)
+        this.handleAutoChange = this.handleAutoChange.bind(this)
     }
     componentDidMount(){
         const {statesInfo} = this.props
@@ -175,12 +179,29 @@ class BarChartCasesDailyTotal extends Component{
 
     }
 
+    handleAutoChange(event){
+        const {auto} = this.state
 
+
+        if(auto === false){
+            this.setState({
+                auto: true,
+                scaleDisabled: true,
+            })
+        }
+        else{
+            this.setState({
+                auto: false,
+                scaleDisabled: false,
+            })
+        }
+
+    }
 
     render(){
         const { year2020, year2021, year2022, USAState, covidDataArr} = this.state
-        const {covidData2020, covidData2021, covidData2022, scaleMax} = this.state
-        const {handleYearChange, changeDataState, handleChangeScaleMax} = this
+        const {covidData2020, covidData2021, covidData2022, scaleMax, auto, scaleDisabled} = this.state
+        const {handleYearChange, changeDataState, handleChangeScaleMax, handleAutoChange} = this
         const {statesInfo} = this.props;
 
         console.log(scaleMax)
@@ -287,31 +308,59 @@ class BarChartCasesDailyTotal extends Component{
         ]
 
  
-        const options = {
-            scales:{
-                x:{
-                    barPercentage: 1,
-                    ticks:{
-                        callback: (value, index, values) =>{
-                            if(labels[index].slice(-2) === '15'){
-                                return labels[index]
+        let options
+
+
+
+
+        if(auto === false){
+            options = {
+                scales:{
+                    x:{
+                        barPercentage: 1,
+                        ticks:{
+                            callback: (value, index, values) =>{
+                                if(labels[index].slice(-2) === '15'){
+                                    return labels[index]
+                                }
                             }
                         }
+                    },
+                    y: {
+                        min: 0,
+                        max: scaleMax * 1
                     }
-                },
-                y: {
-                    min: 0,
-                    max: scaleMax * 1
+                }
+            }
+        }
+        else{
+            options = {
+                scales:{
+                    x:{
+                        barPercentage: 1,
+                        ticks:{
+                            callback: (value, index, values) =>{
+                                if(labels[index].slice(-2) === '15'){
+                                    return labels[index]
+                                }
+                            }
+                        }
+                    },
                 }
             }
         }
 
-        if(USAState === 'USA'){
+        if(USAState === 'USA' && auto===false){
             options.scales.y = {
                 min: 0,
                 max: scaleMax * 1
                 }
-        }   
+        }
+        else if(USAState === 'USA' && auto===true){
+            options.scales.y = {
+                }
+        }  
+ 
 
         console.log(bar2020, bar2021, bar2022)
         console.log(covidData2020, covidData2021, covidData2022)
@@ -334,7 +383,7 @@ class BarChartCasesDailyTotal extends Component{
                     }
                 </select>
                 <label>Y-Scale Max</label>
-                <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax}>
+                <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax} disabled={scaleDisabled}>
                     {scaleMaxValues.map(scaleMaxValue =>{
                         return(
                             <option value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
@@ -342,6 +391,16 @@ class BarChartCasesDailyTotal extends Component{
                     })
                     }
                 </select>
+                <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+                    <FormGroup>
+                    <FormControlLabel
+                        control={
+                        <Checkbox checked={auto} onChange={handleAutoChange} name="auto" />
+                        }
+                        label="Auto Y - Scale"
+                    />
+                    </FormGroup>
+                </FormControl>
             </div>
         )
     }
