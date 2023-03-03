@@ -372,35 +372,43 @@ class BarChartCasesDailyTotal extends Component{
                     <Bar data={{labels, datasets}} options={options}/>
 
                 </div>
-                <select value={USAState} name='USAState' onChange={changeDataState}>
-                    <option value='USA'>USA</option>
+                <div className="options-container">
+                    <div className="select-container">
+                        <label className="select-label">State:</label>
+                        <select value={USAState} name='USAState' onChange={changeDataState}>
+                            <option value='USA'>USA</option>
 
-                    {USAStateList.map(stateName =>{
-                        return(
-                            <option value={stateName}>{stateName}</option>
-                        )
-                    })
-                    }
-                </select>
-                <label>Y-Scale Max</label>
-                <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax} disabled={scaleDisabled}>
-                    {scaleMaxValues.map(scaleMaxValue =>{
-                        return(
-                            <option value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
-                        )
-                    })
-                    }
-                </select>
-                <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-                    <FormGroup>
-                    <FormControlLabel
-                        control={
-                        <Checkbox checked={auto} onChange={handleAutoChange} name="auto" />
+                            {USAStateList.map(stateName =>{
+                                return(
+                                    <option value={stateName}>{stateName}</option>
+                                )
+                            })
+                            }
+                        </select>
+                    </div>
+                    <div className="select-container">
+                    <label className="select-label">Y-Scale Max:</label>
+                    <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax} disabled={scaleDisabled}>
+                        {scaleMaxValues.map(scaleMaxValue =>{
+                            return(
+                                <option value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
+                            )
+                        })
                         }
-                        label="Auto Y - Scale"
-                    />
-                    </FormGroup>
-                </FormControl>
+                    </select>
+                    </div>
+                    <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+                        <FormGroup>
+                        <FormControlLabel
+                            control={
+                            <Checkbox checked={auto} onChange={handleAutoChange} name="auto" />
+                            }
+                            label="Auto Y - Scale"
+                            sx={{ '& .MuiFormControlLabel-label': { fontFamily: 'Times,Times New Roman,serif' } }}
+                        />
+                        </FormGroup>
+                    </FormControl>
+                </div>
             </div>
         )
     }
