@@ -46,14 +46,11 @@ class PieChartStatesLowestCases extends Component{
             }
         })
 
-        console.log(byState)
 
         const stateNames = Object.keys(byState);
         const caseNumbers = Object.values(byState);
 
 
-        console.log(stateNames)
-        console.log(caseNumbers)
 
 
         const caseNumbersSorted = [...caseNumbers];
@@ -61,8 +58,7 @@ class PieChartStatesLowestCases extends Component{
             return a - b;
           });
 
-        console.log(caseNumbers)
-        console.log(caseNumbersSorted)
+
 
         const stateNamesTop5 = []
         const caseNumbersTop5 = []

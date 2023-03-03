@@ -126,7 +126,6 @@ class BarChartCasesDailyTotal extends Component{
         const change = {}
         change[event.target.name] = event.target.value * 1;
 
-        console.log(change)
         this.setState(change)
     }
     changeDataState(event){
@@ -204,7 +203,6 @@ class BarChartCasesDailyTotal extends Component{
         const {handleYearChange, changeDataState, handleChangeScaleMax, handleAutoChange} = this
         const {statesInfo} = this.props;
 
-        console.log(scaleMax)
         const scaleMaxValues = [250000, 500000, 1000000,4000000,6000000,8000000, 10000000, 50000000, 100000000,120000000]
 
 
@@ -361,9 +359,6 @@ class BarChartCasesDailyTotal extends Component{
                 }
         }  
  
-
-        console.log(bar2020, bar2021, bar2022)
-        console.log(covidData2020, covidData2021, covidData2022)
         return(
             <div className='main-box'>
                 <div className='BarChart-Title'>Bar Chart - Cases</div>

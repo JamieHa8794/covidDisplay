@@ -46,14 +46,9 @@ class PieChartStatesHighestCases extends Component{
             }
         })
 
-        console.log(byState)
 
         const stateNames = Object.keys(byState);
         const caseNumbers = Object.values(byState);
-
-
-        console.log(stateNames)
-        console.log(caseNumbers)
 
 
         const caseNumbersSorted = [...caseNumbers];
@@ -61,8 +56,7 @@ class PieChartStatesHighestCases extends Component{
             return b - a;
           });
 
-        console.log(caseNumbers)
-        console.log(caseNumbersSorted)
+
 
         const stateNamesTop5 = []
         const caseNumbersTop5 = []
