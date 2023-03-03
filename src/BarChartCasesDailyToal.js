@@ -317,7 +317,7 @@ class BarChartCasesDailyTotal extends Component{
         console.log(covidData2020, covidData2021, covidData2022)
         return(
             <div className='main-box'>
-                <h1>Bar Chart - Cases</h1>
+                <div className='BarChart-Title'>Bar Chart - Cases</div>
                 <div className='chartContainer'>
 
                     <Bar data={{labels, datasets}} options={options}/>

@@ -413,15 +413,31 @@ nav{
     font-size: 40px;
     margin-bottom: 20px;
 }
-
+.BarChart-Title{
+    font-size: 40px;
+    margin-bottom: 20px; 
+}
 
 .chartContainer{
     margin-left: 100px;
     margin-right: 100px;
+    max-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 .chartContainerPieChart{
     margin-left: 150px;
     margin-right: 150px;
+    max-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 
 }

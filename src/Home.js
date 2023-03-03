@@ -65,6 +65,9 @@ class Home extends Component{
                         <Link className='link' to='/StatesHighestCases'>
                         States - Highest Cases
                         </Link>
+                        <Link className='link' to='/StatesLowestCases'>
+                        States - Lowest Cases
+                        </Link>
                     </div>
                 </div>
                         
