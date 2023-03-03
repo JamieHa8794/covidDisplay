@@ -123,13 +123,18 @@ class PieChartStatesLowestCases extends Component{
                 <Pie data={data} options={options}/>
 
                 </div>
-                <select name='numOfStates' value={numOfStates} onChange={numOfStatesChange}>
-                    <option value='5'>5</option>
-                    <option value='10'>10</option>
-                    <option value='25'>25</option>
-                    <option value='50'>50</option>
-                    <option value='56'>All</option>
-                </select>
+                <div className="options-container">
+                    <div className="select-container">
+                        <label className="select-label"># of States:</label>
+                        <select name='numOfStates' value={numOfStates} onChange={numOfStatesChange}>
+                            <option value='5'>5</option>
+                            <option value='10'>10</option>
+                            <option value='25'>25</option>
+                            <option value='50'>50</option>
+                            <option value='56'>All</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         )
     }

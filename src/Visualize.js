@@ -130,21 +130,6 @@ class Visualize extends Component{
                                 >
                                     States - Lowest Cases
                                 </Button>
-                                <Button
-                                onClick={()=> toLink('XXXXXXXXXX')}
-                                sx={{ 
-                                    color: 'black', 
-                                    display: 'block',
-                                    fontFamily: 'Times, Times New Roman, serif',
-                                    '&:hover': {
-                                        textDecoration: 'underline',
-                                        backgroundColor: 'rgb(222, 202, 176, .60);',
-                                    },
-                                    
-                                }}
-                                >
-                                    XXXXXXXXXX
-                                </Button>
                             </div>
                         </div>
                         <img className='visualize-img' src='./public/covid-19-scientist-cartoon.jpeg'/>

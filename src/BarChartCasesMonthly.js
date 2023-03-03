@@ -247,7 +247,9 @@ class BarChartCasesMonthly extends Component{
                 </div>
                 <div className="options-container">
                     <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-                    <FormLabel component="legend">Years:</FormLabel>
+                    <FormLabel component="legend"
+                    sx={{ fontFamily: 'Times,Times New Roman,serif' , color: 'black', fontSize: 20}}
+                    >Years:</FormLabel>
 
                         <FormGroup>
                         <FormControlLabel
@@ -278,7 +280,7 @@ class BarChartCasesMonthly extends Component{
 
                             {USAStateList.map(stateName =>{
                                 return(
-                                    <option value={stateName}>{stateName}</option>
+                                    <option key={stateName} value={stateName}>{stateName}</option>
                                 )
                             })
                             }

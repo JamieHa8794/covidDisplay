@@ -378,7 +378,7 @@ class BarChartCasesDailyTotal extends Component{
 
                             {USAStateList.map(stateName =>{
                                 return(
-                                    <option value={stateName}>{stateName}</option>
+                                    <option key={stateName} value={stateName}>{stateName}</option>
                                 )
                             })
                             }
@@ -389,7 +389,7 @@ class BarChartCasesDailyTotal extends Component{
                     <select value={scaleMax} name='scaleMax' onChange={handleChangeScaleMax} disabled={scaleDisabled}>
                         {scaleMaxValues.map(scaleMaxValue =>{
                             return(
-                                <option value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
+                                <option key={scaleMaxValue} value={scaleMaxValue}>{scaleMaxValue.toLocaleString("en-US")}</option>
                             )
                         })
                         }
@@ -402,7 +402,7 @@ class BarChartCasesDailyTotal extends Component{
                             <Checkbox checked={auto} onChange={handleAutoChange} name="auto" />
                             }
                             label="Auto Y - Scale"
-                            sx={{ '& .MuiFormControlLabel-label': { fontFamily: 'Times,Times New Roman,serif' } }}
+                            sx={{ '& .MuiFormControlLabel-label': { fontFamily: 'Times,Times New Roman,serif' , color: 'black', fontSize: 20} }}
                         />
                         </FormGroup>
                     </FormControl>
