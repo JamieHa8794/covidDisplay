@@ -45,6 +45,21 @@ class Visualize extends Component{
                                     Bar Charts:
                                 </div>
                                 <Button
+                                onClick={()=> toLink('CasesDailyTotal')}
+                                sx={{ 
+                                    color: 'black', 
+                                    display: 'block',
+                                    fontFamily: 'Times, Times New Roman, serif',
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        backgroundColor: 'rgb(222, 202, 176, .60);',
+                                    },
+                                    
+                                }}
+                                >
+                                    Cases - Daily Total
+                                </Button>
+                                <Button
                                 onClick={()=> toLink('CasesMontly')}
                                 sx={{ 
                                     color: 'black', 
@@ -74,21 +89,7 @@ class Visualize extends Component{
                                 >
                                     Deaths Monthly
                                 </Button>
-                                <Button
-                                onClick={()=> toLink('CasesDailyTotal')}
-                                sx={{ 
-                                    color: 'black', 
-                                    display: 'block',
-                                    fontFamily: 'Times, Times New Roman, serif',
-                                    '&:hover': {
-                                        textDecoration: 'underline',
-                                        backgroundColor: 'rgb(222, 202, 176, .60);',
-                                    },
-                                    
-                                }}
-                                >
-                                    Cases - Daily Total
-                                </Button>
+                                
                             </div>
 
                             {/*

@@ -53,14 +53,14 @@ class Home extends Component{
                             color: '#B0C4DE'
                         }}
                         />
+                        <Link className='link' to='/CasesDailyTotal'>
+                        Total Cases Daily
+                        </Link>
                         <Link className='link' to='/DeathsMonthly'>
                         Total Monthly Deaths
                         </Link>
                         <Link className='link' to='/CasesMontly'>
                         Total Monthly Cases
-                        </Link>
-                        <Link className='link' to='/CasesDailyTotal'>
-                        Total Cases Daily
                         </Link>
                         <Link className='link' to='/StatesHighestCases'>
                         States - Highest Cases
