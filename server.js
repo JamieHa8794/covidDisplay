@@ -16,15 +16,15 @@ app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html'))
 
 //apis
 
-app.get('/api/byCountry', async (req, res, next)=>{
-    try{
-        const countryData = await byCountry.findAll()
-        res.send(countryData)
-    }
-    catch(err){
-        console.log(err)
-    }
-})
+// app.get('/api/byCountry', async (req, res, next)=>{
+//     try{
+//         const countryData = await byCountry.findAll()
+//         res.send(countryData)
+//     }
+//     catch(err){
+//         console.log(err)
+//     }
+// })
 
 app.get('/api/byState', async (req, res, next)=>{
     try{

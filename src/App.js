@@ -19,7 +19,7 @@ import PieChartStatesHighestCases from './PieChartStatesHighestCases';
 import PieChartStatesLowestCases from './PieChartStatesLowestCases';
 
 
-import { loading, loadCountries, loadStates } from './store';
+import { loading, loadStates } from './store';
 
 
 
@@ -73,7 +73,7 @@ const mapDispatchToProps = (dispatch) =>{
     return{
         load: ()=>{
             dispatch(loadStates());
-            dispatch(loadCountries());
+            // dispatch(loadCountries());
 
             dispatch(loading());
         }

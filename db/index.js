@@ -3,7 +3,7 @@ const {STRING, INTEGER} = Sequelize
 const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/coviddisplay');
 
 const {stateData} = require('./covidState')
-const {countryData} = require('./covidCountry')
+// const {countryData} = require('./covidCountry')
 
 
 const byState = db.define('byState', {
@@ -33,23 +33,23 @@ const byState = db.define('byState', {
     }
 })
 
-const byCountry = db.define('byCountry', {
-    date: {
-        type: STRING
-    },
-    day:{
-        type: STRING
-    },
-    year:{
-        type: STRING
-    },
-    cases:{
-        type: STRING
-    },
-    deaths:{
-        type: STRING
-    }
-})
+// const byCountry = db.define('byCountry', {
+//     date: {
+//         type: STRING
+//     },
+//     day:{
+//         type: STRING
+//     },
+//     year:{
+//         type: STRING
+//     },
+//     cases:{
+//         type: STRING
+//     },
+//     deaths:{
+//         type: STRING
+//     }
+// })
 
 
 
@@ -72,16 +72,16 @@ const syncAndSeed = async () =>{
             })
         }))
 
-        await Promise.all(countryData.map(countryEntry =>{
-            byCountry.create({
-                date: countryEntry.date,
-                month: countryEntry.month,
-                day: countryEntry.day,
-                year: countryEntry.year,
-                cases: countryEntry.cases,
-                deaths: countryEntry.deaths
-            })
-        }))
+        // await Promise.all(countryData.map(countryEntry =>{
+        //     byCountry.create({
+        //         date: countryEntry.date,
+        //         month: countryEntry.month,
+        //         day: countryEntry.day,
+        //         year: countryEntry.year,
+        //         cases: countryEntry.cases,
+        //         deaths: countryEntry.deaths
+        //     })
+        // }))
         
         console.log('data entered')
     }
@@ -95,6 +95,6 @@ module.exports = {
     db,
     models:{
         byState,
-        byCountry
+        // byCountry
     }
 }

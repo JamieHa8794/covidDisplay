@@ -4,7 +4,7 @@ import axios from "axios";
 
 const LOAD = 'LOAD';
 const LOAD_STATES = 'LOAD_STATES';
-const LOAD_COUNTRIES = 'LOAD_COUNTRIES';
+// const LOAD_COUNTRIES = 'LOAD_COUNTRIES';
 
 const loadReducers = (state = true, action) =>{
     if(action.type === LOAD){
@@ -20,17 +20,17 @@ const statesReducers = (state = [], action) =>{
     return state;
 }
 
-const countriesReducers = (state = [], action) =>{
-    if(action.type === LOAD_COUNTRIES){
-        state = action.countriesInfo
-    }
-    return state;
-}
+// const countriesReducers = (state = [], action) =>{
+//     if(action.type === LOAD_COUNTRIES){
+//         state = action.countriesInfo
+//     }
+//     return state;
+// }
 
 const reducer = combineReducers({
     loading: loadReducers,
     statesInfo: statesReducers,
-    countriesInfo: countriesReducers
+    // countriesInfo: countriesReducers
 })
 
 const store = createStore(reducer, applyMiddleware(thunk))
@@ -49,12 +49,12 @@ const _loadStates = (statesInfo) =>{
     }
 }
 
-const _loadCountries = (countriesInfo) =>{
-    return{
-        type: LOAD_COUNTRIES,
-        countriesInfo
-    }
-}
+// const _loadCountries = (countriesInfo) =>{
+//     return{
+//         type: LOAD_COUNTRIES,
+//         countriesInfo
+//     }
+// }
 
 
 //thunks
@@ -72,12 +72,13 @@ const loadStates = () =>{
     }
 }
 
-const loadCountries = () =>{
-    return async (dispatch) =>{
-        const countriesInfo = (await axios.get('/api/byCountry')).data
-        dispatch(_loadCountries(countriesInfo))
-    }
-}
+// const loadCountries = () =>{
+//     return async (dispatch) =>{
+//         const countriesInfo = (await axios.get('/api/byCountry')).data
+//         dispatch(_loadCountries(countriesInfo))
+//     }
+// }
 
 export default store;
-export {loading, loadStates, loadCountries}
+// export {loading, loadStates, loadCountries}
+export {loading, loadStates}
