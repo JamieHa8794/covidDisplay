@@ -17,7 +17,6 @@ import Testing from './Testing';
 import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
-import LineChartByState from './LineChartByState';
 import PieChartStatesHighestCases from './PieChartStatesHighestCases';
 import PieChartStatesLowestCases from './PieChartStatesLowestCases';
 
