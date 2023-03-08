@@ -52,7 +52,6 @@ const byState = db.define('byState', {
 // })
 
 
-
 const syncAndSeed = async () =>{
     try{
         await db.sync({force: true})
