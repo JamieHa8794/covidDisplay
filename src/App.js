@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import ScrollToTop from './ScrollToTop'
+import ScrollToTop from './ScrollToTopPage'
 
 import Nav from './Nav';
 import Home from './Home';
