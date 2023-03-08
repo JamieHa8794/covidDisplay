@@ -68,8 +68,8 @@ class BarChartCasesDailyTotal extends Component{
     componentDidUpdate(prevProps){
         const {statesInfo} = this.props
         if(prevProps.statesInfo.length == 0 && this.props.statesInfo.length > 0){
-            // this.setState({})
-
+            this.setState({covidDataArr: this.props.statesInfo})
+            
             const data2020 = this.props.statesInfo.filter(entry => entry.year === '2020')
             const data2021 = this.props.statesInfo.filter(entry => entry.year === '2021')
             const data2022 = this.props.statesInfo.filter(entry => entry.year === '2022')
