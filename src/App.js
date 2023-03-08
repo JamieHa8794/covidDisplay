@@ -12,8 +12,6 @@ import DeseaseInfo from './DeseaseInfo';
 import Visualize from './Visualize';
 import Testing from './Testing';
 
-
-
 import BarChartCasesDailyTotal from './BarChartCasesDailyToal';
 import BarChartDeathsMonthly from './BarChartDeathsMonthly';
 import BarChartCasesMonthly from './BarChartCasesMonthly'
