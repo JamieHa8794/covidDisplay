@@ -58,7 +58,7 @@ const syncAndSeed = async () =>{
 
         console.log('connected to db')
 
-        await Promise.all(stateData.map(stateEntry =>{
+        stateData.map(stateEntry =>{
             byState.create({
                 date: stateEntry.date,
                 month: stateEntry.month,
@@ -69,7 +69,7 @@ const syncAndSeed = async () =>{
                 cases: stateEntry.cases,
                 deaths: stateEntry.deaths
             })
-        }))
+        })
 
         // await Promise.all(countryData.map(countryEntry =>{
         //     byCountry.create({
