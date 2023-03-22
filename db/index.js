@@ -58,6 +58,7 @@ const syncAndSeed = async () =>{
 
         console.log('connected to db')
 
+    
         stateData.map(stateEntry =>{
             byState.create({
                 date: stateEntry.date,
