@@ -55,12 +55,30 @@ const byState = db.define('byState', {
 const syncAndSeed = async () =>{
     try{
         await db.sync({force: true})
-
+        
         console.log('connected to db')
+        
+        
+        // stateData.map(stateEntry =>{
+            //     byState.create({
+                //         date: stateEntry.date,
+                //         month: stateEntry.month,
+                //         day: stateEntry.day,
+                //         year: stateEntry.year,
+                //         state: stateEntry.state,
+                //         fips: stateEntry.fips,
+                //         cases: stateEntry.cases,
+                //         deaths: stateEntry.deaths
+                //     })
+                // })
+                
+        const stateDataToCreate = [];
+        let count = 0;
 
-    
         stateData.map(stateEntry =>{
-            byState.create({
+            count++
+            stateDataToCreate.push({
+                id: count,
                 date: stateEntry.date,
                 month: stateEntry.month,
                 day: stateEntry.day,
@@ -71,6 +89,8 @@ const syncAndSeed = async () =>{
                 deaths: stateEntry.deaths
             })
         })
+
+        byState.bulkCreate(stateDataToCreate)
 
         // await Promise.all(countryData.map(countryEntry =>{
         //     byCountry.create({
